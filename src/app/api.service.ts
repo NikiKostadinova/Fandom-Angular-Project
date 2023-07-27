@@ -10,8 +10,8 @@ export class ApiService {
   constructor(private http: HttpClient) { }
 
   getBooks () {
-    const { appUrl } = environment;
-    return this.http.get(`${appUrl}`)
+    const { apiUrl } = environment;
+    return this.http.get(`${apiUrl}`)
   }
 
 

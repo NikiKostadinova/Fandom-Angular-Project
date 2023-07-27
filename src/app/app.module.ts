@@ -11,6 +11,7 @@ import { HomeComponent } from './home/home.component';
 import { UserModule } from './user/user.module';
 import { CategoriesModule } from './categories/categories.module';
 import { SharedModule } from './shared/shared.module';
+import { appInterceptorProvider } from './app.interceptor';
 
 
 
@@ -33,7 +34,9 @@ import { SharedModule } from './shared/shared.module';
     SharedModule,
     CategoriesModule
   ],
-  providers: [],
+  providers: [
+    appInterceptorProvider
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
