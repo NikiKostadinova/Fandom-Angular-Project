@@ -1,18 +1,20 @@
 <div class="container">
     <div class="profile"><img src="./assets/profile.png" alt="default user">
         <h3>User Info:</h3>
+        <ng-container *ngIf="!isEditMode">
         <div class="flex">
             <p>Username: </p>
-            <p>Johny</p>
+            <p>{{profileDetails.username}}</p>
         </div>
         <div class="flex">
             <p>Email: </p>
-            <p>john.doe@gmail.com</p>
+            <p>{{profileDetails.email}}</p>
         </div>
         <div class="flex">
             <p>Phone: </p>
             <p>+359 885 888 888</p>
         </div>
-        <button class="edit-button">Edit</button>
+        <button class="edit-button" (click)="toggleEditMode()">Edit</button>
+    </ng-container>
     </div>
 </div>

@@ -12,6 +12,7 @@ import { UserModule } from './user/user.module';
 import { CategoriesModule } from './categories/categories.module';
 import { SharedModule } from './shared/shared.module';
 import { appInterceptorProvider } from './app.interceptor';
+import { AuthenticateComponent } from './authenticate/authenticate.component';
 
 
 
@@ -21,7 +22,7 @@ import { appInterceptorProvider } from './app.interceptor';
   declarations: [
     AppComponent,
     MainComponent,    
-    HomeComponent,
+    HomeComponent, AuthenticateComponent,
 
    
   ],

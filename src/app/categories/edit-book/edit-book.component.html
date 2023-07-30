@@ -1,0 +1,29 @@
+<form [formGroup]="bookForm" (ngSubmit)="onSubmit()">
+    <div>
+      <label for="name">Title:</label>
+      <input type="text" id="name" name="name" formControlName="name" required>
+    </div>
+    <div>
+      <label for="author">Author:</label>
+      <input type="text" id="author" name="author" formControlName="author" required>
+    </div>
+    ]<div>
+        <label for="image">Image:</label>
+        <input type="text" id="image" name="image" formControlName="image" required>
+      </div>
+      <div>
+        <label for="published">Published:</label>
+        <input type="number" id="published" name="published" formControlName="published" required>
+      </div>
+      <div>
+        <label for="genre">Genre:</label>
+        <input type="text" id="genre" name="genre" formControlName="genre" required>
+      </div>
+      <div>
+        <label for="description">Description:</label>
+        <input type="text" id="description" name="description" formControlName="description" required>
+      </div>
+    <!-- Add more input fields as needed for other book properties -->
+    <button type="submit">Save Changes</button>
+  </form>
+  

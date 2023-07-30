@@ -1,7 +1,8 @@
 import { Injectable, OnDestroy } from '@angular/core';
 import { User } from '../types/user';
 import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject, Subscription, tap } from 'rxjs';
+import { BehaviorSubject, Subscription, tap, Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 
 
@@ -44,6 +45,8 @@ export class UserService implements OnDestroy {
 
   login(email: string, password: string) {
 
+    const { apiUrl } = environment;
+
     // this.user = {
     //   email: 'john.doe@gmail.com',
     //   username: 'John',
@@ -51,8 +54,10 @@ export class UserService implements OnDestroy {
     // };
 
     // localStorage.setItem(this.USER_KEY, JSON.stringify(this.user));
-
-    return this.http.post<User>('/api/users/login', { email, password })
+ 
+    
+   
+    return this.http.post<User>(`${ apiUrl }/api/users/login`, { email, password })
       .pipe(tap((user) => {
         this.user$$.next(user)
         localStorage.setItem('user', JSON.stringify(user))
@@ -61,6 +66,7 @@ export class UserService implements OnDestroy {
   }
 
   register(username: string, email: string, password: string, rePassword: string) {
+    const { apiUrl } = environment;
 
 
     // this.user = {
@@ -71,7 +77,7 @@ export class UserService implements OnDestroy {
 
     // localStorage.setItem(this.USER_KEY, JSON.stringify(this.user));
 
-    return this.http.post<User>('/api/users/register', { username, email, password, rePassword })
+    return this.http.post<User>(`${ apiUrl }/api/users/register`, { username, email, password, rePassword })
       .pipe(tap((user) => {
         this.user$$.next(user)
         localStorage.setItem('user', JSON.stringify(user))
@@ -92,6 +98,22 @@ export class UserService implements OnDestroy {
 
     localStorage.removeItem(this.USER_KEY);
     this.user$$.next(undefined);
+  }
+
+  getProfile() {
+    const { apiUrl } = environment;
+
+    return this.http
+      .get<User>(`${ apiUrl }/api/users/profile`)
+      .pipe(tap((user) => this.user$$.next(user)));
+  }
+
+  updateProfile(username: string, email: string, tel?: string) {
+    const { apiUrl } = environment;
+
+    return this.http
+      .put<User>(`${ apiUrl }/api/users/profile`, { username, email })
+      .pipe(tap((user) => this.user$$.next(user)));
   }
 
   ngOnDestroy(): void {

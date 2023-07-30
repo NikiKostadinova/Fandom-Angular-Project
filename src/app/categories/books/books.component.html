@@ -1,1 +1,32 @@
-<p>books works!</p>
+
+
+<div class="theme-title" >
+  <div *ngFor="let book of booksList" class="theme-container">
+    <div class="theme-name-wrapper">
+      <div class="theme-name">
+        <a [routerLink]="book._id" class="normal">
+            <img src={{book.image}} alt="Girl in a jacket" width="100" height="150">
+          <h3>{{ book.name}}</h3>
+        </a>
+        <div class="columns">
+          <div>
+            <p>
+              Date: <time>{{ book.published }}</time>
+            </p>
+            <div class="nick-name">
+              <p>
+                Username: <span>Username</span>
+              </p>
+            </div> 
+          </div>
+          <div class="subscribers">
+            <button *ngIf="isLogged" class="subscribe" [routerLink]="['/books', book._id]">Details</button>
+            <p>
+              Subscribers: <span>Subscribers</span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
