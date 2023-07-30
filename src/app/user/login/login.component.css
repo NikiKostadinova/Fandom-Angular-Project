@@ -1,15 +1,15 @@
 /*login register forms  */
 
 form.login, form.register {
-    width: 40%;
+    width: 50%;
     margin: 2em auto 0;
     text-align: center;
 }
 
 .login fieldset, .register fieldset {
-    border-radius: 0.3em;
+    border-radius: 0.5em;
     padding: 0.8em;
-    background-color: #ffffff;
+    background-color: #1e384f;
 }
 
 .login h2, .register h2 {
@@ -26,9 +26,10 @@ form.login, form.register {
     flex: 0 1 100%;
     border: 1px solid;
     padding: 0.3em;
-    border-left: 0.3em solid green;
-    border-top-right-radius: 0.3em;
-    border-bottom-right-radius: 0.3em;
+    /* border-left: 0.3em solid green; */
+    border-radius: 15px 15px 15px 15px;
+    /* border-top-right-radius: 0.3em;
+    border-bottom-right-radius: 0.3em; */
 }
 
 .login select, .register select {
@@ -55,7 +56,7 @@ form.login, form.register {
 }
 
 .login a, .register a {
-    color: #007bff;
+    color: #3b8fe8;
 }
 
 .login a:hover, .register a:hover {
@@ -70,6 +71,8 @@ form.login, form.register {
     display: flex;
     padding-bottom: 0;
 }
+
+
 
 /* errors  */
 

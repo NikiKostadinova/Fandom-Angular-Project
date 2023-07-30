@@ -52,15 +52,16 @@ export class ApiService {
   // }
 
   create(name: string, author: string, image: Image, published: number, genre: string, description: string) {
+    
     const { apiUrl } = environment; 
     return this.http.post<Book>(`${apiUrl}/api/books/create`, { name, author, image, published, genre, description });
   }
 
-  // deleteBook(id: string) {
-  //   const { apiUrl } = environment;
-  //   const url = `${apiUrl}/api/books/${id}`;
-  //   return this.http.delete(url);
+  deleteBook(id: string) {
+    const { apiUrl } = environment;
+    const url = `${apiUrl}/api/books/${id}`;
+    return this.http.delete(url);
 
-  // }
+  }
 
 }

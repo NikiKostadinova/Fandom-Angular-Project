@@ -21,6 +21,9 @@ import { SharedModule } from '../shared/shared.module';
     FormsModule,
     SharedModule,
     ReactiveFormsModule
+  ],
+  exports: [
+    LoginComponent
   ]
 })
 export class UserModule { }

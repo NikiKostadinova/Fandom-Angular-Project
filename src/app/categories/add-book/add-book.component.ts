@@ -18,12 +18,15 @@ export class AddBookComponent {
 
   addBookSubmitHandler(form: NgForm): void {
     if(form.invalid) {
+      console.log(`Invalid Form ${form}`)
       return;
     }
   
 
   const {name, author, image, published, genre, description} = form.value;
+  
   this.apiService.create(name, author, image, published, genre, description).subscribe(() => {
+    console.log(name, author, image, published, genre, description)    
     this.router.navigate(['/books'])
   })
 }

@@ -49,7 +49,7 @@
       </div>
   
       <button *ngIf="isLogged" class="subscribe" [routerLink]="['/books',book._id,'editBook']">Update Info</button>
-      <button *ngIf="isLogged" class="subscribe" >Delete Book</button>
+      <button *ngIf="isLogged" class="subscribe" (click)="onDeleteBook()">Delete Book</button>
 
       <div class="answer-comment" *ngIf="isLogged">     
 

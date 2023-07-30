@@ -39,14 +39,14 @@ export class BookDetailsComponent implements OnInit {
     })
   }
 
-  // onDeleteBook(): void {
-  //   const id = this.activatedRoute.snapshot.params['id'];
-  //   this.apiService.deleteBook(id).subscribe(() => {
-  //     console.log('Book deleted successfully!');
-  //     this.router.navigate(['/books'])
-  //   },
-  //   (error) => {
-  //     console.error('Error deleting book:', error);
-  //   })
-  // }
+  onDeleteBook(): void {
+    const id = this.activatedRoute.snapshot.params['id'];
+    this.apiService.deleteBook(id).subscribe(() => {
+      console.log('Book deleted successfully!');
+      this.router.navigate(['/books'])
+    },
+    (error) => {
+      console.error('Error deleting book:', error);
+    })
+  }
 }
