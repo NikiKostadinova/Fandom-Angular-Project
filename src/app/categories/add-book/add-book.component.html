@@ -1,12 +1,115 @@
-<div class="container">
-    <div class="new-theme-border">
-      <div class="header-background">
-        <span>New Book</span>
+<!-- <div class="add-container">
+
+  <form class="add-book" #form="ngForm" (ngSubmit)="addBookSubmitHandler(form)">
+    <fieldset>
+      <h4>Add New Book</h4>
+      <div class="form-group d-grid gap-3">
+        <label>Book Title</label>
+        <input type="text" class="form-control w-50 mx-auto" id="name" placeholder="Book Title" ngModel
+          #inputName="ngModel" required />
+        <ng-container *ngIf="inputName.touched">
+          <p class="error" *ngIf="inputName.errors?.['required']">
+            Book title is required.
+          </p>
+        </ng-container>
       </div>
-      <form #form="ngForm" (ngSubmit)="addBookSubmitHandler(form)">
-        <div class="new-theme-title">
-          <label for="themeName">Book Name <span class="red">*</span></label>
-          <input
+
+      <div class="form-group d-grid gap-3">
+        <label>Book Author</label>
+        <input type="text" class="form-control w-50 mx-auto" placeholder="Book Author" name="author" id="author" ngModel
+          #inputName="ngModel" required minlength="5" />
+        <ng-container *ngIf="inputName.touched">
+          <p class="error" *ngIf="inputName.errors?.['required']">
+            Book author is required.
+          </p>
+          <p class="error" *ngIf="inputName.errors?.['minlength']">
+            Book author's name must be at least 5 characters long.
+          </p>
+        </ng-container>
+      </div>
+
+      <div class="form-group d-grid gap-3">
+        <label>Book Image</label>
+        <input type="text" class="form-control w-50 mx-auto" id="image" placeholder="Book Image" name="image"
+           ngModel #inputName="ngModel" required minlength="5"/>
+           <ng-container *ngIf="inputName.touched">
+            <p class="error" *ngIf="inputName.errors?.['required']">
+              Image is required.
+            </p>
+            <p class="error" *ngIf="inputName.errors?.['minlength']">
+              Image is invalid.
+            </p>
+          </ng-container>
+      </div>
+
+      <div class="form-group d-grid gap-3">
+        <label>First Published</label>
+        <input type="text" class="form-control w-50 mx-auto" id="published" placeholder="First Published" ngModel
+        #inputName="ngModel"
+        required/>
+        <ng-container *ngIf="inputName.touched">
+          <p class="error" *ngIf="inputName.errors?.['required']">
+            The field is required.
+          </p>         
+        </ng-container>
+      </div>
+
+      <div class="form-group d-grid gap-3">
+        <label>Book Genre</label>
+        <input type="text" class="form-control w-50 mx-auto" id="genre" placeholder="Book Genre" 
+        ngModel
+        #inputName="ngModel"
+        required
+        minlength="5"/>
+        <ng-container *ngIf="inputName.touched">
+          <p class="error" *ngIf="inputName.errors?.['required']">
+            Genre is required.
+          </p>
+          <p class="error" *ngIf="inputName.errors?.['minlength']">
+            Genre name must be at least 5 characters long.
+          </p>
+        </ng-container>
+      </div>
+
+      <div class="form-group d-grid gap-3">
+        <label>Description</label>
+        
+        <textarea id="description" name="description" rows="6" cols="50" 
+        ngModel
+        #textAreaInput="ngModel"
+        required
+        minlength="20"></textarea>
+        <ng-container *ngIf="textAreaInput.touched">
+          <p class="error" *ngIf="textAreaInput.errors?.['required']">
+            The field with the description is required.
+          </p>
+          <p class="error" *ngIf="textAreaInput.errors?.['minlength']">
+            Description must be at least 20 characters long.
+          </p>
+        </ng-container>
+
+      </div>
+
+      <button class="btn-theme" [disabled]="form.invalid">Add Book</button>
+   
+
+    </fieldset>
+  </form>
+</div> -->
+
+
+
+
+
+<div class="container">
+    <div class="new-theme-border">      
+      <form #form="ngForm" (ngSubmit)="addBookSubmitHandler(form)" class="add-book">
+        <fieldset>
+          <h4>Add New Book</h4>
+        <div class="form-group d-grid gap-3">
+          <label for="themeName">Book Name</label>
+          <input 
+            class="form-control w-50 mx-auto"
             type="text"
             name="name"
             id="name"
@@ -25,9 +128,10 @@
             </p>
           </ng-container>
         </div>
-        <div class="new-theme-title">
-            <label for="themeName">Author <span class="red">*</span></label>
+        <div class="form-group d-grid gap-3">
+            <label for="themeName">Author</label>
             <input
+            class="form-control w-50 mx-auto"
               type="text"
               name="author"
               id="author"
@@ -46,9 +150,10 @@
               </p>
             </ng-container>
           </div>
-          <div class="new-theme-title">
-            <label for="themeName">Image <span class="red">*</span></label>
+          <div class="form-group d-grid gap-3">
+            <label for="themeName">Image</label>
             <input
+            class="form-control w-50 mx-auto"
               type="text"
               name="image"
               id="bookImage"
@@ -68,9 +173,10 @@
             </ng-container>
           </div> 
        
-        <div class="new-theme-title">
-            <label for="themeName">Published <span class="red">*</span></label>
+        <div class="form-group d-grid gap-3">
+            <label for="published">Published</label>
             <input
+            class="form-control w-50 mx-auto"
               type="number"
               name="published"
               id="published"
@@ -89,9 +195,10 @@
               </p>
             </ng-container>
           </div>
-          <div class="new-theme-title">
-            <label for="themeName">Genre <span class="red">*</span></label>
+          <div class="form-group d-grid gap-3">
+            <label for="genre">Genre</label>
             <input
+            class="form-control w-50 mx-auto"
               type="text"
               name="genre"
               id="bookGenre"
@@ -110,9 +217,10 @@
               </p>
             </ng-container>
           </div>
-          <div class="new-theme-content">
-            <label for="postText">Description <span class="red">*</span></label>
-            <textarea
+          <div cclass="form-group d-grid gap-3">
+            <label for="description" class="add-description">Description</label>
+            <textarea           
+             class="form-control w-50 mx-auto"
               type="text"
               name="description"
               id="description"
@@ -135,10 +243,10 @@
           </div>
           
   
-        <div class="new-theme-buttons">
-          <button class="cancel">Cancel</button>
-          <button class="public" [disabled]="form.invalid">Post</button>
+        <div class="new-theme-buttons">          
+          <button class="btn-add" [disabled]="form.invalid">Add Book</button>
         </div>
+      </fieldset>
       </form>
     </div>
   </div>

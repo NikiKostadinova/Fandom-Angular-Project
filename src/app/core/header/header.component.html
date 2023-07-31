@@ -1,55 +1,26 @@
-<!-- <header class="header">
-    <div class="header">
-        <nav class="navbar">
-            <a routerLink="/home">Home</a>
-            <a routerLink="/categories">Categories</a>            
-            <a routerLink="/profile">Profile</a>
-            <a routerLink="/login">Create Review</a>
-            <a routerLink="/login">Logout</a>            
-            <a routerLink="/login">Login</a>
-            <a routerLink="/register">Register</a>           
-        </nav>
-    </div>
+<header >
+    <nav class="mini-navbar-wrap py-md-4 text-center ">
 
-</header> -->
+        <span class="site-logo">Book Fandom</span>
 
-<header>
-    <div class="mini-navbar-wrap">
-        <div class="logo-wrap">
-            <p class="logo"><span class="logo">SoftUni Forum</span></p>
-        </div>
         <div class="mini-navbar">
-            <ul *ngIf="isLoggedIn">
-                <li>
-                    <a routerLink="/profile">{{username}}'s profile</a>
-                </li>
-                <li (click)="logout()">
-                    <a >Logout</a>
-                </li>
+            <ul *ngIf="isLoggedIn" class="d-flex">
+                <div class="d-flex justify-content-start align-items-center">
+                    <li><a routerLink="/home" class="p-2">Home</a></li>
+                    <li><a routerLink="/books" class="p-2">Books</a></li>
+                    <li><a href="/add" class="p-2">Add Book</a></li>
+                </div>>
+                <div class="item-right d-flex justify-content-end align-items-center">
+                    <li><a routerLink="/profile" class="p-2" >{{username}}'s profile</a></li>
+                    <li (click)="logout()" class="p-2" ><a>Logout</a></li>
+                </div>
             </ul>
             <ul *ngIf="!isLoggedIn">
-                <li>
-                    <a routerLink="/login">Login</a>
-                </li>
-                <li>
-                    <a routerLink="/register">Register</a>
-                </li>
-
+                <li><a routerLink="/login">Login</a></li>
+                <li><a routerLink="/register">Register</a> </li>
+                <li> <a routerLink="/books">Book Categories</a></li>
             </ul>
         </div>
-    </div>
-    <nav>
-        <ul>
-            <li>
-                <a routerLink="/home">Home</a>
-            </li>
-            <li>
-                <a routerLink="/books">Book Categories</a>
-            </li>
-            <li>
-                <a href="/add">Add Book</a>
-            </li>
-        </ul>
     </nav>
 
 </header>

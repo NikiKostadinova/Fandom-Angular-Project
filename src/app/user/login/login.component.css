@@ -10,6 +10,8 @@ form.login, form.register {
     border-radius: 0.5em;
     padding: 0.8em;
     background-color: #1e384f;
+    box-shadow: 0px 0px 50px -10px rgba(200, 233, 225, 0.900);
+
 }
 
 .login h2, .register h2 {

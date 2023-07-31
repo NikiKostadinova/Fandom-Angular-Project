@@ -45,16 +45,7 @@ export class UserService implements OnDestroy {
 
   login(email: string, password: string) {
 
-    const { apiUrl } = environment;
-
-    // this.user = {
-    //   email: 'john.doe@gmail.com',
-    //   username: 'John',
-    //   password: '123456'
-    // };
-
-    // localStorage.setItem(this.USER_KEY, JSON.stringify(this.user));
- 
+    const { apiUrl } = environment;  
     
    
     return this.http.post<User>(`${ apiUrl }/api/users/login`, { email, password })
@@ -68,14 +59,7 @@ export class UserService implements OnDestroy {
   register(username: string, email: string, password: string, rePassword: string) {
     const { apiUrl } = environment;
 
-
-    // this.user = {
-    //   email: 'john.doe@gmail.com',
-    //   username: 'John',
-    //   password: '123456'
-    // };
-
-    // localStorage.setItem(this.USER_KEY, JSON.stringify(this.user));
+   
 
     return this.http.post<User>(`${ apiUrl }/api/users/register`, { username, email, password, rePassword })
       .pipe(tap((user) => {
@@ -86,16 +70,7 @@ export class UserService implements OnDestroy {
   }
 
   logout(): void {
-    // this.user = undefined;
-    // localStorage.removeItem(this.USER_KEY);
-
-    // return this.http
-    // .post<User>('/api/users/logout', {})
-    // .pipe(tap(() => {
-    //   this.user$$.next(undefined)
-    //   localStorage.removeItem('user')
-    // }))
-
+    
     localStorage.removeItem(this.USER_KEY);
     this.user$$.next(undefined);
   }

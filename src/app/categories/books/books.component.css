@@ -1,6 +1,7 @@
 .theme-container a {
     text-decoration: none;
     color: inherit;
+    
   }
   
   .theme-container span {
@@ -31,7 +32,9 @@
   }
   
   .theme-name {
-    width: 100%;
+    width: 100%;   
+    border-bottom: 1px solid #56afcd;;
+    border-radius: 0.3em;
   }
   
   .columns {
@@ -70,4 +73,45 @@
     width: 80%;
     margin: 0 auto;
     margin-bottom: 50px;
+  }
+
+  .img-card{
+background-color: azure;
+  }
+  
+  .description-card{
+background-color: azure;
+
+  }
+  
+  .btn-details{
+    height: 30px;
+    border-radius: 5px;
+    border: none;
+    font-size: 13px;
+    background-color: var(--primary-color);
+  }
+  .title{
+    color: azure;
+    /* font-family: 'Raleway', sans-serif; */
+    font-family: 'Raleway', sans-serif;
+  }
+  .card-author{
+    font-family: 'Charm', cursive;
+  }
+
+  /* .home-container {
+    background-image: url('https://images.pexels.com/photos/326055/pexels-photo-326055.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  } */
+
+  .card-body{
+    color: rgb(51, 68, 89);
   }

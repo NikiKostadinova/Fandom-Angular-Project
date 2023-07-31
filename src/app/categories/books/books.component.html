@@ -1,32 +1,47 @@
 
-
-<div class="theme-title" >
-  <div *ngFor="let book of booksList" class="theme-container">
-    <div class="theme-name-wrapper">
-      <div class="theme-name">
-        <a [routerLink]="book._id" class="normal">
-            <img src={{book.image}} alt="Girl in a jacket" width="100" height="150">
-          <h3>{{ book.name}}</h3>
-        </a>
-        <div class="columns">
-          <div>
-            <p>
-              Date: <time>{{ book.published }}</time>
-            </p>
-            <div class="nick-name">
-              <p>
-                Username: <span>Username</span>
-              </p>
-            </div> 
-          </div>
-          <div class="subscribers">
-            <button *ngIf="isLogged" class="subscribe" [routerLink]="['/books', book._id]">Details</button>
-            <p>
-              Subscribers: <span>Subscribers</span>
-            </p>
-          </div>
+<div  class="container-card">
+  <div class="title text-center">
+    <h1 class="text-uppercase my-5">Books</h1>
+  </div>
+  <div *ngFor="let book of booksList" class="card mb-3 shadow-effect ">
+    <div class="row g-0">
+      <div class=" img-card col-md-4">
+        <img src={{book.image}} alt="Girl in a jacket" class="img-fluid founded-start" width="150" height="150">
+      </div>
+      <div class=" description-card col-md-8">
+        <div class="card-body">
+          <h3 class="card-title">{{book.name}}</h3>
+          <h5 class="card-author">by {{book.author}}</h5>
+          <p class="card-text">{{book.description}}</p>
+          <button *ngIf="isLogged" class="btn-details shadow-effect" [routerLink]="['/books', book._id]">Details</button>
         </div>
       </div>
     </div>
   </div>
 </div>
+
+
+<!-- <div class="theme-title" >
+  <div *ngFor="let book of booksList" class="theme-container mt-5 mb-5 mb-3 ">
+   
+      <div class="theme-name">
+        <a [routerLink]="book._id" class="normal">
+            <img src={{book.image}} alt="Girl in a jacket" width="100" height="150">
+          <h4>{{ book.name}}</h4>
+        </a>
+        <div class="columns">
+          <div>
+            <p>Date: <time>{{ book.published }}</time></p>
+            <div class="nick-name">
+              <p>Username: <span>Username</span></p>
+            </div> 
+          </div>
+          <div class="subscribers">
+            <button *ngIf="isLogged" class="subscribe" [routerLink]="['/books', book._id]">Details</button>
+            <p>Subscribers: <span>Subscribers</span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> -->
+ 

@@ -1,6 +1,57 @@
 /* new-theme */
+.add-book fieldset {
+  border-radius: 0.5em;
+  padding: 0.8em;
+  background-color: #1e384f;
+  box-shadow: 0px 0px 50px -10px rgba(200, 233, 225, 0.900);
+}
 
-.new-theme-border {
+form.add-book {
+  width: 50%;
+  margin: 2em auto 0;
+  text-align: center;
+}
+
+.add-book input {
+  flex: 0 1 100%;
+  border: 1px solid;
+  padding: 0.3em;
+  /* border-left: 0.3em solid green; */
+  border-radius: 15px 15px 15px 15px;
+  /* border-top-right-radius: 0.3em;
+  border-bottom-right-radius: 0.3em; */
+}
+
+.add-book textarea {
+  flex: 0 1 100%;
+  border: 1px solid;
+  padding: 0.3em;
+  border-radius: 15px 15px 15px 15px;
+
+}
+
+.btn-add {
+  height: 30px;
+  border-radius: 5px;
+  border: none;
+  font-size: 13px;
+  background-color: var(--primary-color);
+}
+
+h4 {
+  color: azure;
+}
+
+label {
+  color: azure;
+}
+
+.add-description {
+  display: flex;
+  flex-direction: column;
+}
+
+/* .new-theme-border {
     border: 1px solid;
     border-radius: 1em;
     width: 80%;
@@ -83,4 +134,4 @@
   
   .input-error {
     border-left-color: red;
-  }
+  } */

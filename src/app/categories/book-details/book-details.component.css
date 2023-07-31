@@ -1,0 +1,23 @@
+.container{
+    background-color: azure;
+}
+.card{
+    background-color: azure;
+
+}
+
+.btn-info{
+    height: 30px;
+    border-radius: 5px;
+    border: none;
+    font-size: 13px;
+    background-color: var(--primary-color);
+}
+
+.btn-delete{
+    height: 30px;
+    border-radius: 5px;
+    border: none;
+    font-size: 13px;
+    background-color: var(--primary-color);
+}
