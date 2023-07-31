@@ -12,7 +12,7 @@ import { EditBookComponent } from './edit-book/edit-book.component';
 const routes: Routes = [
     { path: 'categories', component: MainComponent },
     
-    { path: 'books', component:  BooksComponent, canActivate: [AuthActivate]},
+    { path: 'books', component:  BooksComponent},
     { path: 'books/:id', component: BookDetailsComponent },
     { path: 'add', component: AddBookComponent },
     { path: 'books/:id/editBook', component: EditBookComponent}
