@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { ApiService } from '../api.service';
+import { UserService } from '../user/user.service';
 
 @Component({
   selector: 'app-home',
@@ -6,10 +8,18 @@ import { Component } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
-  showLogin: boolean = false;
 
-  // Function to toggle the visibility of the login component
-  toggleLogin(): void {
-    this.showLogin = !this.showLogin;
+  constructor(private apiService: ApiService, private userService: UserService) { }
+
+  get isLogged(): boolean {
+    return this.userService.isLogged;
   }
+
+
+  // showLogin: boolean = false;
+
+  // // Function to toggle the visibility of the login component
+  // toggleLogin(): void {
+  //   this.showLogin = !this.showLogin;
+  // }
 }

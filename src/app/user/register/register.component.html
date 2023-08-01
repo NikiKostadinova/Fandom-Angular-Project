@@ -8,9 +8,9 @@
 
             <div class="form-group d-grid gap-3">
                 <p class="field field-icon">
-                    <label for="username">Username</label>
+                    <!-- <label for="username">Username</label> -->
                     <input class="input-error form-control w-50 mx-auto" type="text" name="username" id="username"
-                        placeholder="Johny" formControlName="username">
+                        placeholder="Username" formControlName="username">
                 </p>
                 <ng-container *ngIf="form.get('username')?.touched">
                     <p class="error" *ngIf="form.get('username')?.errors?.['required']">
@@ -25,8 +25,8 @@
             <!-- email -->
             <div class="form-group d-grid gap-3">
                 <p class="field field-icon">
-                    <label for="email">Email</label>
-                    <input type="email" name="email" id="email" placeholder="john.doe@gmail.com"
+                    <!-- <label for="email">Email</label> -->
+                    <input type="email" name="email" id="email" placeholder="Email"
                         formControlName="email">
                 </p>
                 <ng-container *ngIf="form.get('email')?.touched">
@@ -44,8 +44,8 @@
                 <!-- password -->
                 <div class="form-group d-grid gap-3">
                     <p class="field field-icon">
-                        <label for="password">Password</label>
-                        <input type="password" name="password" id="password" placeholder="******"
+                        <!-- <label for="password">Password</label> -->
+                        <input type="password" name="password" id="password" placeholder="Password"
                             formControlName="password">
                     </p>
                     <ng-container *ngIf="form.get('passGroup')?.get('password')?.touched">
@@ -60,8 +60,8 @@
                 <!-- rePassword -->
                 <div class="form-group d-grid gap-3">
                     <p class="field field-icon">
-                        <label for="rePassword">Repeat Password</label>
-                        <input type="password" name="rePassword" id="rePassword" placeholder="******"
+                        <!-- <label for="rePassword">Repeat Password</label> -->
+                        <input type="password" name="rePassword" id="rePassword" placeholder="Repeat Password"
                             formControlName="rePassword">
                     </p>
                     <ng-container *ngIf="form.get('passGroup')?.get('password')?.touched">
@@ -77,7 +77,7 @@
 
             <p class="text-center">
                 Have an account?
-                <a href="#">Log In</a>
+                <a href="/home">Log In</a>
             </p>
 
         </fieldset>

@@ -1,0 +1,67 @@
+.edit-book fieldset {
+     
+    border-radius: 0.5em;
+      padding: 0.8em;
+      /* background-color: #1e384f; */
+    background-color: rgba(0, 0, 0, 0.566);
+
+      box-shadow: 0px 0px 50px -10px rgba(200, 233, 225, 0.900);
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      min-width: 500px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 9999;      
+  }
+
+  .edit-book input {
+    flex: 0 1 100%;
+    border: 1px solid;
+    padding: 0.3em;
+    /* border-left: 0.3em solid green; */
+    border-radius: 15px 15px 15px 15px;
+    /* border-top-right-radius: 0.3em;
+    border-bottom-right-radius: 0.3em; */
+  }
+
+  form.edit-book {
+    width: 50%;
+    margin: 2em auto 0;
+    text-align: center;
+  }
+
+  .edit-book textarea {
+    flex: 0 1 100%;
+    /* border: 1px solid; */
+    padding: 0.3em;
+    border-radius: 15px 15px 15px 15px;
+  
+  }
+
+  .btn-edit {
+    height: 30px;
+    border-radius: 5px;
+    border: none;
+    font-size: 13px;
+    background-color: var(--primary-color);
+  }
+
+  h4 {
+    color: azure;
+  }
+  
+  
+  
+  label {
+    color: azure;
+  }
+  
+  
+  .add-description {
+    display: flex;
+    flex-direction: column;
+  }
+

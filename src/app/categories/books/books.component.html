@@ -3,12 +3,12 @@
   <div class="title text-center">
     <h1 class="text-uppercase my-5">Books</h1>
   </div>
-  <div *ngFor="let book of booksList" class="card mb-3 shadow-effect ">
-    <div class="row g-0">
-      <div class=" img-card col-md-4">
+  <div *ngFor="let book of booksList" class="card mb-3 shadow-effect mx-5">
+    <div class="row g-0 " >
+      <div class=" img-card col-md-2">
         <img src={{book.image}} alt="Girl in a jacket" class="img-fluid founded-start" width="150" height="150">
       </div>
-      <div class=" description-card col-md-8">
+      <div class=" description-card col-md-10" >
         <div class="card-body">
           <h3 class="card-title">{{book.name}}</h3>
           <h5 class="card-author">by {{book.author}}</h5>

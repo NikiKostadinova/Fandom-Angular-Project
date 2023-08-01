@@ -1,29 +1,45 @@
-<form [formGroup]="bookForm" (ngSubmit)="onSubmit()">
-    <div>
+<div class="container position-relative">
+  <div class="new-theme-border position-absolute top-50 start-50 translate-middle">  
+<form [formGroup]="bookForm" (ngSubmit)="onSubmit()" class="edit-book ">
+  <fieldset>
+    <h4>Update Book Information</h4>
+    <div class="form-group d-grid gap-3">
       <label for="name">Title:</label>
-      <input type="text" id="name" name="name" formControlName="name" required>
+      <input type="text" id="name" name="name" formControlName="name" required class="form-control w-50 mx-auto">
     </div>
-    <div>
+    <div class="form-group d-grid gap-3">
       <label for="author">Author:</label>
-      <input type="text" id="author" name="author" formControlName="author" required>
+      <input type="text" id="author" name="author" formControlName="author" required class="form-control w-50 mx-auto">
     </div>
-    ]<div>
+    <div class="form-group d-grid gap-3">
         <label for="image">Image:</label>
-        <input type="text" id="image" name="image" formControlName="image" required>
+        <input type="text" id="image" name="image" formControlName="image" required class="form-control w-50 mx-auto">
       </div>
-      <div>
+      <div class="form-group d-grid gap-3">
         <label for="published">Published:</label>
-        <input type="number" id="published" name="published" formControlName="published" required>
+        <input type="number" id="published" name="published" formControlName="published" required class="form-control w-50 mx-auto">
       </div>
-      <div>
+      <div class="form-group d-grid gap-3">
         <label for="genre">Genre:</label>
-        <input type="text" id="genre" name="genre" formControlName="genre" required>
+        <input type="text" id="genre" name="genre" formControlName="genre" required class="form-control w-50 mx-auto">
       </div>
-      <div>
+      <div class="form-group d-grid gap-3">
         <label for="description">Description:</label>
-        <input type="text" id="description" name="description" formControlName="description" required>
+        <textarea           
+             class="form-control w-50 mx-auto"
+              type="text"
+              name="description"
+              id="description"
+              rows="8"
+              cols="40"              
+              formControlName="description"
+              required              
+            ></textarea>
       </div>
-    <!-- Add more input fields as needed for other book properties -->
-    <button type="submit">Save Changes</button>
+    
+    <button type="submit" class="btn-edit" >Save Changes</button>
+  </fieldset>
   </form>
+  </div>
+</div>
   

@@ -101,9 +101,9 @@
 
 
 
-<div class="container">
-    <div class="new-theme-border">      
-      <form #form="ngForm" (ngSubmit)="addBookSubmitHandler(form)" class="add-book">
+<div class="container position-relative">
+    <div class="new-theme-border position-absolute top-50 start-50 translate-middle">      
+      <form #form="ngForm" (ngSubmit)="addBookSubmitHandler(form)" class="add-book ml-2">
         <fieldset>
           <h4>Add New Book</h4>
         <div class="form-group d-grid gap-3">
@@ -217,7 +217,7 @@
               </p>
             </ng-container>
           </div>
-          <div cclass="form-group d-grid gap-3">
+          <div class="form-group d-grid gap-3">
             <label for="description" class="add-description">Description</label>
             <textarea           
              class="form-control w-50 mx-auto"
@@ -225,6 +225,7 @@
               name="description"
               id="description"
               rows="8"
+              cols="40"
               class="height"
               ngModel
               #textAreaInput="ngModel"
