@@ -1,5 +1,6 @@
 .container{
     background-color: azure;
+    height: 500px;
 }
 .card{
     background-color: azure;
@@ -21,3 +22,8 @@
     font-size: 13px;
     background-color: var(--primary-color);
 }
+
+.img-card {
+    background-color: azure;
+    position: relative;
+  }

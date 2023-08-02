@@ -1,27 +1,53 @@
-<header >
-    <nav class="mini-navbar-wrap py-md-4 text-center ">
+<header>
+    <div class="container d-flex justify-content-between d-flex justify-content-between align-items-bottom">
+    <h2 class="logo col-md-4 mt-4 ml-0">Book Fandom</h2>
+    <div class="nav col-md-8 ml-auto mt-5">
+        <div class="topnav " *ngIf="isLoggedIn">
 
-        <span class="site-logo">Book Fandom</span>
+            <a routerLink="/home">Home</a>
+            <a routerLink="/books">Books</a>
+            <a routerLink="/add">Add Book</a>
+            <a routerLink="/profile">{{username}}'s profile</a>
+            <a class="logout" (click)="logout()">Logout</a>
+        </div>
 
-        <div class="mini-navbar">
+        <div class="topnav-right" *ngIf="!isLoggedIn">
+            <a routerLink="/home">Home</a>
+            <a routerLink="/register">Register</a>
+            <a routerLink="/books">Books</a>
+        </div>
+    </div>
+</div>
+</header>
+
+
+
+
+
+<!-- <header >
+    <nav class="mini-navbar-wrap py-md-4 ">
+       
+        <h2 class="logo col-md-6">Book Fandom</h2>
+
+        <div class="mini-navbar col-md-6 ">
             <ul *ngIf="isLoggedIn" class="d-flex">
-                <div class="d-flex justify-content-start align-items-center">
-                    <li><a routerLink="/home" class="p-2">Home</a></li>
-                    <li><a routerLink="/books" class="p-2">Books</a></li>
-                    <li><a href="/add" class="p-2">Add Book</a></li>
+                <div class="d-flex justify-content-between ">
+                    <li><a routerLink="/home" >Home</a></li>
+                    <li><a routerLink="/books">Books</a></li>
+                    <li><a href="/add" >Add Book</a></li>
                 </div>>
-                <div class="item-right d-flex justify-content-end align-items-center">
-                    <li><a routerLink="/profile" class="p-2" >{{username}}'s profile</a></li>
-                    <li (click)="logout()" class="p-2" ><a>Logout</a></li>
+                <div class="item-right justify-content-between ">
+                    <li><a routerLink="/profile" >{{username}}'s profile</a></li>
+                    <li (click)="logout()" ><a>Logout</a></li>
                 </div>
             </ul>
             <ul *ngIf="!isLoggedIn">
-                <li><a routerLink="/home" class="p-2">Home</a></li>
-                <!-- <li><a routerLink="/login">Login</a></li> -->
+                
+                <li><a routerLink="/login">Login</a></li>
                 <li><a routerLink="/register">Register</a> </li>
                 <li> <a routerLink="/books">Books</a></li>
             </ul>
         </div>
     </nav>
 
-</header>
+</header> -->

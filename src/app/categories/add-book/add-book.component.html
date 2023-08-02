@@ -101,10 +101,10 @@
 
 
 
-<div class="container position-relative">
-    <div class="new-theme-border position-absolute top-50 start-50 translate-middle">      
-      <form #form="ngForm" (ngSubmit)="addBookSubmitHandler(form)" class="add-book ml-2">
-        <fieldset>
+<div class="container ">
+    <div class="new-theme-border  ">      
+      <form #form="ngForm" (ngSubmit)="addBookSubmitHandler(form)" class="add-book position-absolute top-50 start-50 translate-middle">
+        <fieldset class="add ">
           <h4>Add New Book</h4>
         <div class="form-group d-grid gap-3">
           <label for="themeName">Book Name</label>
@@ -249,5 +249,5 @@
         </div>
       </fieldset>
       </form>
-    </div>
+    <!-- </div> -->
   </div>

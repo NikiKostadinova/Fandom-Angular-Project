@@ -1,10 +1,18 @@
-footer{
-    height: 130px;
+footer {
+    height: 100px;
     padding: 15px;
-    background-color: azure;   
+    background-color: azure;
+
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    /* background-color: red; */
+    /* color: white; */
+    text-align: center;
 }
 
-.site-logo{   
+.site-logo {
     font-size: 1.2em;
     /* font-family: 'Raleway', sans-serif; */
 }

@@ -1,56 +1,105 @@
 header {
+    overflow: hidden;
+    max-height: 80px;
+    background-color: #1e384f;
+}
+
+div.topnav {
+
+    float: right;
+    color: #f2f2f2;
+    text-align: end;
+    
+    margin-left: 250px;
+    padding-left: 20px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+a {
+    padding-left: 20px;
+   
+    color: azure;
+    text-decoration: none;
+}
+
+.logout {
+    cursor: pointer;
+}
+
+.topnav a:hover {
+    color: rgb(160, 244, 241);
+    text-shadow: rgb(208, 248, 250) 1px 0 10px;
+}
+
+.topnav-right {
+    float: right;  
+    color: #f2f2f2;
+    text-align: end;    
+    margin-left: 400px;
+    padding-left: 20px;
+    text-decoration: none;
+    font-size: 17px;
+}
+.topnav-right a:hover {
+    color: rgb(160, 244, 241);
+    text-shadow: rgb(208, 248, 250) 1px 0 10px;
+}
+
+h2{
+    color:azure;
+    font-family:'Cinzel Decorative', cursive;
+    margin-left: 10px;   
+    text-align: center;
+    position: relative; 
+  text-shadow: rgb(0, 242, 255) 1px 0 10px;
+}
+
+
+
+/* header {
+    max-height: 80px;
+    
     background-color: #1e384f;
 
 }
-
-header ul {
-    padding: 0%;
-    display: flex;
-    /* align-items: center; */
-    width: 100%;
-    margin-top: 20px;
-    margin-bottom: 0px;
-    
+h2{
+    color:azure;
+    font-family:'Cinzel Decorative', cursive;
+    margin-left: 10px;   
+    position: absolute; 
+  text-shadow: rgb(0, 242, 255) 1px 0 10px;
 }
 
-/* header ul span {
-    color: white;
-    padding: 0.5em;
-} */
 
-.mini-navbar ul {
-    border: 1px solid #317785;
-    border-radius: 0.3em;
-    padding-left: 0.8em;
-    width: 100%;
-   
+.mini-navbar{
+   width: 100%;
+    margin-left: 900px;
+    
+
 }
 
 header li {
     list-style: none;
     margin: .35em;
     padding: 0 .95em;
+    
 }
+
 
 header a {
     text-decoration: none;
     color: white;
     cursor: pointer;
+    font-size: medium;    
 }
 
 nav {
     border-top: 1px solid #317785;
 }
-.site-logo {
-    font-size: 1.2em;
-    padding: 10px 10px;  
-    border-radius: 20px; 
-    /* box-shadow: 0px 0px 50px -10px rgba(200, 233, 225, 0.900); */
 
-}
 
 .mini-navbar-wrap  {
+    display: flex;
     margin-top: 0px;
-}
-
-
+} */

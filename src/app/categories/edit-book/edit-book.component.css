@@ -1,5 +1,6 @@
 .edit-book fieldset {
-     
+     margin-top: 450px;
+     margin-right: -400px;
     border-radius: 0.5em;
       padding: 0.8em;
       /* background-color: #1e384f; */
@@ -9,13 +10,25 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      position: absolute;
+      /* position: absolute; */
       min-width: 500px;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
       z-index: 9999;      
   }
+
+  .container{
+  background-image: url('https://images.pexels.com/photos/326055/pexels-photo-326055.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 180vh;
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  /* justify-content: center; */
+}
 
   .edit-book input {
     flex: 0 1 100%;

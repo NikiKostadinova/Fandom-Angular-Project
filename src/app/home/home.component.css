@@ -1,14 +1,15 @@
-.home-container {
+/* .home-container {
     background-image: url('https://images.pexels.com/photos/326055/pexels-photo-326055.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+   
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-  }
+  } */
   
   app-login {
     position: absolute;
@@ -17,5 +18,15 @@
     left: 80%;
     transform: translate(-50%, -50%);
     z-index: 9999;
+  }
+  h1{
+    color:azure;
+    font-family:'Cinzel Decorative', cursive;
+    font-size: 45px;
+    position: absolute;
+  left: 100px;
+  top: 300px;
+  text-shadow: rgb(0, 242, 255) 1px 0 10px;
+    /* margin-right: 200px; */
   }
 
