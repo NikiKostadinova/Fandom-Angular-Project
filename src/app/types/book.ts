@@ -1,4 +1,5 @@
 import { Image } from "./image";
+import { Comment } from "./comment";
 
 export interface Book {
     _id: string;
@@ -8,8 +9,9 @@ export interface Book {
     published: number;
     genre: string;
     description: string;
+    createdAt: string;
     // rating: number;
     // numberReviews: number;
-    // comments: string [];
+    commentList: Comment[];
 }
 

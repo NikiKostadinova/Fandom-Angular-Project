@@ -91,6 +91,10 @@ export class UserService implements OnDestroy {
       .pipe(tap((user) => this.user$$.next(user)));
   }
 
+  getCurrentUserId(): string | null {
+    return this.user?._id || null;
+  }
+
   ngOnDestroy(): void {
     this.subscription.unsubscribe();
   }

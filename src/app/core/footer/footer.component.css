@@ -3,7 +3,7 @@ footer {
     padding: 15px;
     background-color: azure;
 
-    position: fixed;
+    position:static;
     left: 0;
     bottom: 0;
     width: 100%;

@@ -20,9 +20,12 @@ export class BooksComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.apiService.getBooks().subscribe({      
+    this.apiService.getBooks().subscribe({
       next: (books) => {
-       
+        // console.log(books)
+        // books.sort((a, b) => new Date(b['createdAt']).getTime() - new Date(a['createdAt']).getTime());
+
+        // this.booksList = books.slice(0, 3);
         this.booksList = books;
 
       },
@@ -32,5 +35,5 @@ export class BooksComponent implements OnInit {
     })
   }
 
-  
+
 }

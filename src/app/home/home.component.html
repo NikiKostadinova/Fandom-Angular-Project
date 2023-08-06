@@ -1,11 +1,14 @@
 
 <div class="home-container">
    
-  <h1>Step into the Magic World</h1>
+  
 
   <div class="login-container" *ngIf="!isLogged">
+    <h1>Step into the Magic World</h1>
   <app-login></app-login>
 </div>
-<div class="main-container" *ngIf="isLogged"></div>
+<div class="main-container" *ngIf="isLogged">
+  <app-book-card></app-book-card>
+</div>
 </div>
   

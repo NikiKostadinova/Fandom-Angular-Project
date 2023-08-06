@@ -14,6 +14,8 @@ import { SharedModule } from './shared/shared.module';
 import { appInterceptorProvider } from './app.interceptor';
 import { AuthenticateComponent } from './authenticate/authenticate.component';
 import { LoginComponent } from './user/login/login.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { CommentsComponent } from './comments/comments.component';
 
 
 
@@ -25,6 +27,8 @@ import { LoginComponent } from './user/login/login.component';
     MainComponent,    
     HomeComponent,
      AuthenticateComponent,
+     PageNotFoundComponent,
+     CommentsComponent,
     
 
    

@@ -1,6 +1,5 @@
 <div class="container" *ngIf="book">
   <div class="row ">
-    <!-- <div class="col-md-8"> -->
 
     <div class="card shadow-effect col-md-3 " style="padding: 0;">
       <img src={{book.image}} style="max-width: 100%; display: block;">
@@ -13,18 +12,45 @@
 
       <h1 class="mt-3 mb-3"> {{book.name}} </h1>
       <h5 class="card-author">by {{book.author}}</h5>
+      <p>
+      <!-- <span> {{ comment.likes.length }} </span> likes -->
+    </p>
       <p>{{book.description}}</p>
       <button *ngIf="isLogged" class="btn-info" [routerLink]="['/books',book._id,'editBook']">Update Info</button>
       <button *ngIf="isLogged" class="btn-delete ml-2" (click)="onDeleteBook()">Delete Book</button>
     </div>
-  </div>
-
-
-  <!-- </div> -->
-  <!-- <div class="col-md-4"> -->
-
-  <!-- </div> -->
+  </div>  
 </div>
+
+<div class="comment" *ngFor="let comment of book?.commentList">
+<header class="header">
+  <span>{{ comment.userId.username }}</span> posted on
+ 
+</header>
+<div class="comment-main">
+  <div class="user">
+    <!-- <img src="/assets/profile.png" alt="avatar" /> -->
+  </div>
+  <div class="content">
+    <p>
+      {{ comment.comment }}
+    </p>
+  </div>
+</div>
+</div>
+
+
+
+<div class="leave-comment" *ngIf="isLogged">
+  <p><span>currentUser</span> comment:</p>
+  <div class="answer">
+    <form (submit)="onSubmitComment()">
+      <textarea name="commentText" [(ngModel)]="newCommentText" id="comment" cols="30" rows="10"></textarea>
+      <button type="submit" class="btn">Leave a Comment</button>
+    </form>
+  </div>
+</div>
+
 
 
 

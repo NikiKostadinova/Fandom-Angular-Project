@@ -1,0 +1,21 @@
+<div class="container-card mt-5">
+    <div class="title text-center ">
+        <h1 class="text-uppercase ">What is new?</h1>
+    </div>
+    <div class="row">
+        <div *ngFor="let book of booksList" class="col-sm-6 col-md-4 col-lg-3 mb-3">
+
+            <div class="card shadow-effect h-100">
+                <img src={{book.image}} alt="Girl in a jacket" class="img-fluid founded-start" width="150" height="150">
+          
+
+            <div class="card-body">
+                <h3 class="card-title">{{book.name}}</h3>
+                <h5 class="card-author">by {{book.author}}</h5>
+
+                <button *ngIf="isLogged" class="btn-details shadow-effect"
+                    [routerLink]="['/books', book._id]">Details</button>
+            </div>
+        </div>
+    </div>
+</div>
