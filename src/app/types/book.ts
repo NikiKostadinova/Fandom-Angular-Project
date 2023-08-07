@@ -10,7 +10,7 @@ export interface Book {
     genre: string;
     description: string;
     createdAt: string;
-    // rating: number;
+    rating: number;
     // numberReviews: number;
     commentList: Comment[];
 }

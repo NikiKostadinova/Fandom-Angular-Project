@@ -5,7 +5,9 @@ export interface Comment {
     
     comment: string;
     userId: User;
+    username: string;
     bookId: Book;
+    rating: number;
    
 
 }

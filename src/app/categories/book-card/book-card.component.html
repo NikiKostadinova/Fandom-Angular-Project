@@ -1,12 +1,12 @@
 <div class="container-card mt-5">
     <div class="title text-center ">
-        <h1 class="text-uppercase ">What is new?</h1>
+        <h1 class="new text-uppercase ">What is new?</h1>
     </div>
-    <div class="row">
-        <div *ngFor="let book of booksList" class="col-sm-6 col-md-4 col-lg-3 mb-3">
+    <div class="row justify-content-sm-center">
+        <div *ngFor="let book of booksList" class="col-md-3 col-sm-6 col-xs-12">
 
-            <div class="card shadow-effect h-100">
-                <img src={{book.image}} alt="Girl in a jacket" class="img-fluid founded-start" width="150" height="150">
+            <div class="card ">
+                <img src={{book.image}} alt="Girl in a jacket" class="img-fluid founded-start" width="500" height="200">
           
 
             <div class="card-body">

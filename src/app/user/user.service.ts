@@ -95,6 +95,10 @@ export class UserService implements OnDestroy {
     return this.user?._id || null;
   }
 
+  getCurrentUserUsername(): string | null {
+    return this.user?.username || null;
+  }
+
   ngOnDestroy(): void {
     this.subscription.unsubscribe();
   }
