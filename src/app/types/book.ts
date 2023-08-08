@@ -6,7 +6,7 @@ export interface Book {
     name: string;
     author: string;
     image: Image;
-    published: number;
+    published: string;
     genre: string;
     description: string;
     createdAt: string;

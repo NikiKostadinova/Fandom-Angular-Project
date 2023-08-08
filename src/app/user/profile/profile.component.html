@@ -17,6 +17,51 @@
         </div>
         <button class="edit-button" (click)="toggleEditMode()">Edit</button>
     </ng-container>
+
+     <!-- EDIT MODE -->
+     <ng-container *ngIf="isEditMode && isLoggedIn">
+        <form [formGroup]="form" (ngSubmit)="saveProfileHandler()">
+          <!-- username input -->
+          <div class="flex">
+            <p>Username:</p>
+            <input type="text" id="username" formControlName="username" />
+          </div>
+  
+          <!-- username validations -->
+          <ng-container *ngIf="form.get('username')?.touched">
+            <p class="error" *ngIf="form.get('username')?.errors?.['required']">
+              Username is required!
+            </p>
+            <p class="error" *ngIf="form.get('username')?.errors?.['minlength']">
+              Username's length should not be less than 5!
+            </p>
+          </ng-container>
+  
+          <!-- email input -->
+          <div class="flex">
+            <p>Email:</p>
+            <input type="email" id="email" formControlName="email" />
+          </div>
+  
+          <!-- email validations -->
+          <ng-container *ngIf="form.get('email')?.touched">
+            <p class="error" *ngIf="form.get('email')?.errors?.['required']">
+              Email is required!
+            </p>
+            <p
+              class="error"
+              *ngIf="form.get('email')?.errors?.['appEmailValidator']"
+            >
+              Email is not valid!
+            </p>
+          </ng-container>
+           
+  
+          <!-- ACTIONS -->
+          <button class="red-button">Cancel</button>
+          <button class="green-button">Save</button>
+        </form>
+      </ng-container>
     </div>
 </fieldset>
 </div>

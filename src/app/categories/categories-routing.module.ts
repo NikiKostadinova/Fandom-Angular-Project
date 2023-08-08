@@ -13,9 +13,9 @@ const routes: Routes = [
     { path: 'categories', component: MainComponent },
     
     { path: 'books', component:  BooksComponent},
-    { path: 'books/:id', component: BookDetailsComponent },
-    { path: 'add', component: AddBookComponent },
-    { path: 'books/:id/editBook', component: EditBookComponent}
+    { path: 'books/:id', component: BookDetailsComponent, canActivate: [AuthActivate] },
+    { path: 'add', component: AddBookComponent, canActivate: [AuthActivate] },
+    { path: 'books/:id/editBook', component: EditBookComponent, canActivate: [AuthActivate] }
 ];
 
 @NgModule({

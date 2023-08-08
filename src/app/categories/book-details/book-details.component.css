@@ -56,12 +56,12 @@
  
   position: fixed;
     background-color: azure;
-    flex: 1;
+    
 
 }
 
 .card-body{
-  flex: 1;
+
   background-color: azure;
  display: block;
  width: 100%;

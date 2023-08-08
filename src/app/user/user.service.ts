@@ -6,6 +6,8 @@ import { environment } from 'src/environments/environment';
 
 
 
+
+
 @Injectable({
   providedIn: 'root'
 })
@@ -24,13 +26,7 @@ export class UserService implements OnDestroy {
   }
 
   constructor(private http: HttpClient) {
-    // try {
-    //   const lsUser = localStorage.getItem(this.USER_KEY) || '';
-    //   this.user = JSON.parse(lsUser);
-    // } catch (error) {
-    //   this.user = undefined;
-    // }
-
+    
     this.subscription = this.user$.subscribe((user) => {
       this.user = user;
     });
@@ -52,26 +48,32 @@ export class UserService implements OnDestroy {
       .pipe(tap((user) => {
         this.user$$.next(user)
         localStorage.setItem('user', JSON.stringify(user))
+        
+        if (user.token) {         
+          sessionStorage.setItem('token', user.token); 
+        }
       }));
 
   }
 
   register(username: string, email: string, password: string, rePassword: string) {
-    const { apiUrl } = environment;
-
-   
+    const { apiUrl } = environment;   
 
     return this.http.post<User>(`${ apiUrl }/api/users/register`, { username, email, password, rePassword })
       .pipe(tap((user) => {
         this.user$$.next(user)
         localStorage.setItem('user', JSON.stringify(user))
+        if (user.token) {
+          sessionStorage.setItem('token', user.token); 
+        }
       }));
 
   }
 
-  logout(): void {
+  logout(): void{
     
     localStorage.removeItem(this.USER_KEY);
+    sessionStorage.clear();
     this.user$$.next(undefined);
   }
 
@@ -83,9 +85,9 @@ export class UserService implements OnDestroy {
       .pipe(tap((user) => this.user$$.next(user)));
   }
 
-  updateProfile(username: string, email: string, tel?: string) {
+  updateProfile(username: string, email: string) {
     const { apiUrl } = environment;
-
+    
     return this.http
       .put<User>(`${ apiUrl }/api/users/profile`, { username, email })
       .pipe(tap((user) => this.user$$.next(user)));

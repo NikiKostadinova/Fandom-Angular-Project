@@ -21,6 +21,11 @@ export class ProfileComponent implements OnInit {
     email: '',
    
   };
+
+  get isLoggedIn (): boolean {
+    return this.userService.isLogged
+  }
+  
   isEditMode: boolean = false;
 
   form = this.fb.group({
@@ -60,13 +65,13 @@ export class ProfileComponent implements OnInit {
   }
 
   saveProfileHandler(): void {
-    if (this.form.invalid) {
+    if (this.form.invalid) {      
       return;
     }
 
     this.profileDetails = { ...this.form.value } as Profile;
     const { username, email } = this.profileDetails;
-
+   
     this.userService.updateProfile(username!, email!,).subscribe(() => {
       this.toggleEditMode();
     });

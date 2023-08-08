@@ -7,25 +7,37 @@ import { ErrorService } from "./core/error/error.service";
 
 const { apiUrl } = environment;
 
+
 @Injectable()
 export class AppInterceptor implements HttpInterceptor {
     constructor(private router: Router, private errorService: ErrorService) {
 
     }
 
+
+
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+
+        
         if (req.url.startsWith('/api')) {
-            console.log(req.url)
+            const token = sessionStorage.getItem('token');           
             req = req.clone({
                 url: req.url.replace('/api', apiUrl),
                 withCredentials: true,
-                
+                setHeaders: {
+                    Authorization: `Bearer ${token}`
+                }
             })
          
 
         }
 
+       
+
+        
+
         return next.handle(req).pipe(
+            
             catchError((err) => {
 
                 if (err.status === 401) {
