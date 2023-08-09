@@ -19,8 +19,10 @@
       
     </p>
       <p>{{book.description}}</p>
-      <button *ngIf="isLogged" class="btn-info" [routerLink]="['/books',book._id,'editBook']">Update Info</button>
-      <button *ngIf="isLogged" class="btn-delete ml-2" (click)="onDeleteBook()">Delete Book</button>
+      <button *ngIf="isLogged && isOwnedByCurrentUser" class="btn-info" [routerLink]="['/books',book._id,'editBook']">Update Info</button>
+      <button *ngIf="isLogged && isOwnedByCurrentUser" class="btn-delete ml-2" (click)="onDeleteBook()">Delete Book</button>
+      <!-- <button *ngIf="isLogged " class="btn-wish ml-2" >Add to Wishlist</button> -->
+
     </div>
   </div>  
 </div>

@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ApiService } from 'src/app/api.service';
 import { Book } from 'src/app/types/book';
+import { UserService } from 'src/app/user/user.service';
 // import { Image } from 'src/app/types/image'
 
 
@@ -14,7 +15,7 @@ import { Book } from 'src/app/types/book';
 })
 export class AddBookComponent {
 
-  constructor(private apiService: ApiService, private router: Router) {}
+  constructor(private apiService: ApiService, private router: Router, private userService: UserService) {}
 
   addBookSubmitHandler(form: NgForm): void {
     if(form.invalid) {
@@ -24,9 +25,10 @@ export class AddBookComponent {
   
 
   const {name, author, image, published, genre, description} = form.value;
-  
-  this.apiService.create(name, author, image, published, genre, description).subscribe(() => {
-    console.log(name, author, image, published, genre, description)    
+  const owner = this.userService.getCurrentUserId() || '';
+
+  this.apiService.create(name, author, image, published, genre, description, owner).subscribe(() => {
+    
     this.router.navigate(['/books'])
   })
 }

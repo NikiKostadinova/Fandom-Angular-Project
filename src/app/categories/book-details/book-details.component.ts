@@ -17,6 +17,7 @@ export class BookDetailsComponent implements OnInit {
   newCommentText: string = '';
   newCommentRating: number = 0;  
   username: string = '';
+  isOwnedByCurrentUser: boolean = false;
 
   constructor(
     private apiService: ApiService,
@@ -33,6 +34,8 @@ export class BookDetailsComponent implements OnInit {
     this.fetchBook();
     this.fetchUser();
 
+  
+
   }
 
   fetchBook(): void {
@@ -45,12 +48,14 @@ export class BookDetailsComponent implements OnInit {
         const totalRating = this.book.commentList.reduce((acc, comment) => acc + comment.rating, 0);
         this.book.rating = totalRating / this.book.commentList.length;
       }
+
+      const loggedInUserId = this.userService.getCurrentUserId();
+      this.isOwnedByCurrentUser = book.owner === loggedInUserId;
     })
   }
 
   fetchUser(): void {
-    // const username = this.activatedRoute.snapshot.params['username'];
-
+    
     const username = this.userService.getCurrentUserUsername();
     if(username){
       this.username = username;

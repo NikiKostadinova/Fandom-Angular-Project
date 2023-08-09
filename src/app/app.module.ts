@@ -26,21 +26,21 @@ import { CommentsComponent } from './comments/comments.component';
     AppComponent,
     MainComponent,    
     HomeComponent,
-     AuthenticateComponent,
-     PageNotFoundComponent,
+     AuthenticateComponent,     
      CommentsComponent,
+     PageNotFoundComponent,
     
 
    
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     CoreModule,
     HttpClientModule,
     UserModule,
     SharedModule,
-    CategoriesModule
+    CategoriesModule,
+    AppRoutingModule,
   ],
   providers: [
     appInterceptorProvider

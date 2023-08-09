@@ -1,6 +1,6 @@
 import { Injectable, OnDestroy } from '@angular/core';
 import { User } from '../types/user';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { BehaviorSubject, Subscription, tap, Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
@@ -36,6 +36,15 @@ export class UserService implements OnDestroy {
       const user: User = JSON.parse(userString);
       this.user$$.next(user);
     }
+  }
+
+  getToken(): string | null {
+    const userString = localStorage.getItem('user');
+    if (userString) {
+      const user: User = JSON.parse(userString);
+      return user.token;
+    }
+    return null;
   }
 
 
@@ -79,17 +88,25 @@ export class UserService implements OnDestroy {
 
   getProfile() {
     const { apiUrl } = environment;
+    const token = this.getToken();
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${token}`
+    })
 
     return this.http
-      .get<User>(`${ apiUrl }/api/users/profile`)
+      .get<User>(`${ apiUrl }/api/users/profile`, {headers})
       .pipe(tap((user) => this.user$$.next(user)));
   }
 
   updateProfile(username: string, email: string) {
     const { apiUrl } = environment;
+    const token = this.getToken();
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${token}`
+    })
     
     return this.http
-      .put<User>(`${ apiUrl }/api/users/profile`, { username, email })
+      .put<User>(`${ apiUrl }/api/users/profile`, { username, email }, {headers})
       .pipe(tap((user) => this.user$$.next(user)));
   }
 

@@ -40,10 +40,10 @@ export class ApiService {
   }
 
 
-  create(name: string, author: string, image: Image, published: number, genre: string, description: string) {
+  create(name: string, author: string, image: Image, published: number, genre: string, description: string, owner: string) {
     
     const { apiUrl } = environment; 
-    return this.http.post<Book>(`${apiUrl}/api/books/create`, { name, author, image, published, genre, description });
+    return this.http.post<Book>(`${apiUrl}/api/books/create`, { name, author, image, published, genre, description, owner });
   }
 
   // getComments(limit?: number){

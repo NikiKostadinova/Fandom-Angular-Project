@@ -17,31 +17,25 @@ export class AppInterceptor implements HttpInterceptor {
 
 
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-
         
         if (req.url.startsWith('/api')) {
-            const token = sessionStorage.getItem('token');           
+            const token = sessionStorage.getItem('token');      
+            console.log(token)     
             req = req.clone({
                 url: req.url.replace('/api', apiUrl),
                 withCredentials: true,
                 setHeaders: {
                     Authorization: `Bearer ${token}`
                 }
-            })
-         
-
-        }
-
-       
-
-        
-
+            })       
+        }     
+           
         return next.handle(req).pipe(
-            
+        
             catchError((err) => {
 
                 if (err.status === 401) {
-                    this.router.navigate(['/login']);
+                    this.router.navigate(['/home']);
                 } else {
                     this.errorService.setError(err);
                     this.router.navigate(['/error']);

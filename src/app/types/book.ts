@@ -11,6 +11,7 @@ export interface Book {
     description: string;
     createdAt: string;
     rating: number;
+    owner: string;
     // numberReviews: number;
     commentList: Comment[];
 }

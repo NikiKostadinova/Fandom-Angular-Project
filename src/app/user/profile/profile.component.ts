@@ -71,8 +71,13 @@ export class ProfileComponent implements OnInit {
 
     this.profileDetails = { ...this.form.value } as Profile;
     const { username, email } = this.profileDetails;
+
+    // const headers = {
+    //   Authorization: `Bearer ${this.userService.getToken()}`
+    // };
    
-    this.userService.updateProfile(username!, email!,).subscribe(() => {
+    
+    this.userService.updateProfile(username!, email!).subscribe(() => {
       this.toggleEditMode();
     });
   }
