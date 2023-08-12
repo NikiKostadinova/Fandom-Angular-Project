@@ -1,10 +1,9 @@
-
 .rating {
   font-size: 15px;
   padding-left: 1.5em;
   color: orange;
   margin-right: 10px;
- 
+
 }
 
 .star {
@@ -13,25 +12,27 @@
 }
 
 .full::before {
-  content: "\2605"; /* Unicode for a filled star */
- 
+  content: "\2605";
+  /* Unicode for a filled star */
+
 }
 
 .empty::before {
-  content: "\2606"; /* Unicode for an empty star */
+  content: "\2606";
+  /* Unicode for an empty star */
 }
 
-.fa{
+.fa {
   color: orange;
 }
 
 
 
-.leave-comment{
+.leave-comment {
   margin-left: 300px;
   margin-top: 10px;
   background-color: azure;
-  color:rgb(47, 97, 80);
+  color: rgb(47, 97, 80);
   width: 690px;
 
 
@@ -52,42 +53,46 @@
 
 
 
-.container{ 
- display: flex;
- margin-top: 20px;
- margin-bottom: 20px;
+.container {
+  display: flex;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
-.card{
- 
+
+.card {
+
   position: fixed;
-    background-color: azure;
-    border-radius: 10px;
-    
+  background-color: azure;
+  border-radius: 10px;
+
 
 }
 
-.card-body{
+.card-body {
 
   background-color: azure;
- /* display: block;
+  /* display: block;
  width: 100%; */
 
- display: flex;
- flex-direction: column;
- justify-content: flex-start;
- align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
 
 
 }
 
 .description-container {
-  max-width: 100%; /* Ensure the container grows to fill available space */
+  max-width: 100%;
+  /* Ensure the container grows to fill available space */
 }
 
 .description {
   font-size: 16px;
-  white-space: pre-line; /* Preserve newlines and spaces in the text */
-  overflow-wrap: break-word; /* Allow text to wrap if necessary */
+  white-space: pre-line;
+  /* Preserve newlines and spaces in the text */
+  overflow-wrap: break-word;
+  /* Allow text to wrap if necessary */
 }
 
 .read-toggle {
@@ -98,13 +103,14 @@
 /* Set a minimum height for the container to prevent it from collapsing */
 .card-body {
   margin-left: 0px;
-  min-height: 400px; /* Adjust this value as needed */
+  min-height: 400px;
+  /* Adjust this value as needed */
   min-width: 690px;
 }
 
-.btn-info{
+.btn-info {
 
-  color: rgba(59, 65, 66, 0.996); 
+  color: rgba(59, 65, 66, 0.996);
   background-color: rgb(171, 201, 206);
   margin: 0.5em 1em;
   margin-top: -60px;
@@ -114,11 +120,11 @@
   padding: 0.5em 1em;
   border: none;
   border-radius: 0.3em;
-  
+
 }
 
-.btn-delete{
-  color: rgba(59, 65, 66, 0.996); 
+.btn-delete {
+  color: rgba(59, 65, 66, 0.996);
   background-color: rgb(171, 201, 206);
   margin: 0.5em 1em;
   min-width: 100px;
@@ -128,8 +134,9 @@
   border: none;
   border-radius: 0.3em;
 }
-.btn-wish{
-  color: rgba(59, 65, 66, 0.996); 
+
+.btn-wish {
+  color: rgba(59, 65, 66, 0.996);
   background-color: rgb(171, 201, 206);
   margin: 0.5em 1em;
   /* margin-left: 10px; */
@@ -139,130 +146,149 @@
   border-radius: 0.3em;
 }
 
-.btn-allComments{
-  color: rgba(59, 65, 66, 0.996); 
+.btn-allComments {
+  color: rgba(59, 65, 66, 0.996);
   background-color: rgb(171, 201, 206);
   margin: 0.5em 1em;
-  margin-left: 150px;  
+  margin-left: 150px;
   padding: 0.5em 1em;
   border: none;
   border-radius: 0.3em;
- 
+
 }
 
-  .comment-main {
-    margin: 1em;
-    display: flex;
-    color: rgba(59, 65, 66, 0.996);  
-  }
-  
-  .userdetails p {
-    padding-left: 0;
-    text-align: left;
-  }
-  
-  .content p {
-    padding-left: 1.5em;
-  }
-  
+.comment-main {
+  margin: 1em;
+  display: flex;
+  color: rgba(59, 65, 66, 0.996);
+}
 
- 
-  
-  /* answer-comment */
+.userdetails p {
+  padding-left: 0;
+  text-align: left;
+}
+
+.content p {
+  padding-left: 1.5em;
+}
+
+
+
+
+/* answer-comment */
 .leave-comment p {
   margin-bottom: 0px;
 
 }
-  
-  
-  .answer-comment {
-    width: 100%;
-    display: flex;
-    margin-top: 1em;
-  }
-  
-  .answer-comment p {
-    margin-top: 10px;
-    flex-basis: 15%;
-    padding-bottom: 0.3em;
-  }
-  
-  .answer-comment p span {
-   
-    color: rgba(59, 65, 66, 0.996);  
-    font-size: 1.2em;
-  }
-  
-  .answer {
-    /* border: 1px solid; */
-    border-radius: 0.3em;
-    flex-basis: 85%;
-    text-align: center;
-    margin-bottom: 10px;
-  }
-  
-  .answer textarea {
-    width: 90%;
-    margin-top: 1rem;
-    border-radius: 0.5rem;
-  }
-  
-  .answer button {
-    color: rgba(59, 65, 66, 0.996); 
-    background-color: rgb(171, 201, 206);
-    margin: 0.5em 1em;
-    margin-left: 20px;
-    padding: 0.5em 1em;
-    border: none;
-    border-radius: 0.3em;
-  }
 
 
-  
-  .answer button:hover {
-    cursor: pointer;
-  }
-  
-  .comment-area {
-    min-width: 100%;
-  }
+.answer-comment {
+  width: 100%;
+  display: flex;
+  margin-top: 1em;
+}
 
-  .leave-comment span{
-    font-family:'Raleway', sans-serif;
-    color:rgba(59, 65, 66, 0.996); 
-    font-size: large;
-    font-weight: 500;
-    margin-left: 5px;
-    margin-right: 5px;
-  }
+.answer-comment p {
+  margin-top: 10px;
+  flex-basis: 15%;
+  padding-bottom: 0.3em;
+}
 
-  .title {
-    color: rgba(59, 65, 66, 0.996);  
-    font-family: 'Raleway', sans-serif;
-  }
-  
-  .card-author {
-    font-family: 'Charm', cursive;
-    color: rgb(13, 14, 14);
+.answer-comment p span {
 
-  }
+  color: rgba(59, 65, 66, 0.996);
+  font-size: 1.2em;
+}
 
-  .description {
-    color: rgba(59, 65, 66, 0.996);  
-    font-family: 'Raleway', sans-serif;
-  }
+.answer {
+  /* border: 1px solid; */
+  border-radius: 0.3em;
+  flex-basis: 85%;
+  text-align: center;
+  margin-bottom: 10px;
+}
 
-  .published {
-    font-family: 'Raleway', sans-serif;
-    color: rgba(59, 65, 66, 0.996); 
-  }
+.answer textarea {
+  width: 90%;
+  margin-top: 1rem;
+  border-radius: 0.5rem;
+}
 
-  .genre {
-    font-family: 'Raleway', sans-serif;
-    color: rgba(59, 65, 66, 0.996); 
-  }
+.answer button {
+  color: rgba(59, 65, 66, 0.996);
+  background-color: rgb(171, 201, 206);
+  margin: 0.5em 1em;
+  margin-left: 20px;
+  padding: 0.5em 1em;
+  border: none;
+  border-radius: 0.3em;
+}
 
-  .userName {
-     text-align: center;
-  }
 
+
+.answer button:hover {
+  cursor: pointer;
+}
+
+.comment-area {
+  min-width: 100%;
+}
+
+.leave-comment span {
+  font-family: 'Raleway', sans-serif;
+  color: rgba(59, 65, 66, 0.996);
+  font-size: large;
+  font-weight: 500;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.title {
+  color: rgba(59, 65, 66, 0.996);
+  font-family: 'Raleway', sans-serif;
+}
+
+.card-author {
+  font-family: 'Charm', cursive;
+  color: rgb(13, 14, 14);
+
+}
+
+.description {
+  color: rgba(59, 65, 66, 0.996);
+  font-family: 'Raleway', sans-serif;
+
+  /* Ensure the container can accommodate the ellipsis */
+  width: 100%;
+  /* Allow text to wrap, and show ellipsis if needed */
+  white-space: normal;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+}
+
+.published {
+  font-family: 'Raleway', sans-serif;
+  color: rgba(59, 65, 66, 0.996);
+}
+
+.genre {
+  font-family: 'Raleway', sans-serif;
+  color: rgba(59, 65, 66, 0.996);
+}
+
+.userName {
+  text-align: center;
+}
+
+.wished {
+  color: rgba(59, 65, 66, 0.996);
+  margin: 0.5em 1em;
+  /* margin-left: 10px; */
+  align-self: end;
+  padding: 0.5em 1em;
+  font-size: 15px;
+margin-right: -10px;
+
+
+}

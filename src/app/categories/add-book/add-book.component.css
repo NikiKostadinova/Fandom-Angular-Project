@@ -40,6 +40,10 @@
   justify-content: center;
 }
 
+.error{
+  color: red;
+}
+
 form.add-book {
   width: 50%;
   /* margin: 2em auto 0; */

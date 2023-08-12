@@ -1,6 +1,6 @@
-import { HTTP_INTERCEPTORS, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from "@angular/common/http";
+import { HTTP_INTERCEPTORS, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest, HttpResponse } from "@angular/common/http";
 import { Injectable, Provider } from "@angular/core";
-import { Observable, catchError } from "rxjs";
+import { Observable, catchError, map } from "rxjs";
 import { environment } from "src/environments/environment";
 import { Router } from "@angular/router";
 import { ErrorService } from "./core/error/error.service";
@@ -17,24 +17,34 @@ export class AppInterceptor implements HttpInterceptor {
 
 
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-        
+
         if (req.url.startsWith('/api')) {
-            const token = sessionStorage.getItem('token');      
-            console.log(token)     
+            const token = sessionStorage.getItem('token');
+            console.log(token)
             req = req.clone({
                 url: req.url.replace('/api', apiUrl),
                 withCredentials: true,
                 setHeaders: {
                     Authorization: `Bearer ${token}`
                 }
-            })       
-        }     
-           
-        return next.handle(req).pipe(
-        
-            catchError((err) => {
+            })
+        }
 
-                if (err.status === 401) {
+        return next.handle(req).pipe(
+
+            catchError((err) => {
+                
+                if (err.error.message === 'Invalid email or password') {
+                                    
+                    this.errorService.setError(err.error);
+                    this.router.navigate(['/error']);
+
+                }else if (err.error.message === 'Email exists'){
+                    this.errorService.setError(err.error);
+                    this.router.navigate(['/error']);
+                }else if (err.status === 401) {
+                    this.errorService.setError(err);
+                   
                     this.router.navigate(['/home']);
                 } else {
                     this.errorService.setError(err);
@@ -42,7 +52,18 @@ export class AppInterceptor implements HttpInterceptor {
                 }
 
                 return [err];
+            }),
+            map(event => {
+                if (event instanceof HttpResponse && event.status === 401) {
+                    const errorResponse = event.body;
+                    if (errorResponse && errorResponse.error) {
+                        // Display the error message to the user
+                        alert(errorResponse.error); // You can use any UI component or service to show the error
+                    }
+                }
+                return event;
             })
+
         );
     }
 }

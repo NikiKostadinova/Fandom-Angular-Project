@@ -107,11 +107,13 @@ export class UserService implements OnDestroy {
 
     return this.http
     .put<User>(`${apiUrl}/api/users/profile`, updatedUser, { headers })
-    .pipe(tap((user) => this.user$$.next(user)));
-    
-    // return this.http
-    //   .put<User>(`${ apiUrl }/api/users/profile`, { username, email }, {headers})
-    //   .pipe(tap((user) => this.user$$.next(user)));
+    .pipe(tap((user) => this.user$$.next(user)));    
+   
+  }
+
+  checkEmailRegistration(email: string): Observable<boolean> {
+    const { apiUrl } = environment;
+    return this.http.get<boolean>(`${ apiUrl }/api/users/check-email-existence/${email}`);
   }
 
   getCurrentUserId(): string | null {

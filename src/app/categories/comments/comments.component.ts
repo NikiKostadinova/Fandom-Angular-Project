@@ -5,7 +5,7 @@ import { Book } from '../../types/book';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from 'src/app/user/user.service';
 import { User } from 'src/app/types/user';
-import { SlicePipe } from '@angular/common';
+// import { SlicePipe } from '@angular/common';
 
 
 @Component({
@@ -21,6 +21,7 @@ export class CommentsComponent implements OnInit {
   newCommentRating: number = 0;  
   username: string = '';
   activatedRoute: any;
+  
 
   truncatedCommentLength: number = 50;
   showFullDescription: boolean = false;
@@ -70,6 +71,15 @@ export class CommentsComponent implements OnInit {
     this.newCommentRating = rating;
   }
 
+  calculateAverageRating(): number {
+    if (!this.book || this.book.commentList.length === 0) {
+      return 0;
+    }
+
+    const totalRating = this.book.commentList.reduce((acc, comment) => acc + comment.rating, 0);
+    return totalRating / this.book.commentList.length;
+  }
+
   onSubmitComment(): void {
     if (this.newCommentText.trim() === '') {
       return;
@@ -92,14 +102,21 @@ export class CommentsComponent implements OnInit {
     };
 
     if (this.book) {
-      this.book.commentList.push(newComment);     
+      this.book.commentList.push(newComment);    
+      
+      const totalRating = this.book.commentList.reduce((acc, comment) => acc + comment.rating, 0);
+      this.book.rating = totalRating / this.book.commentList.length;
    
 
     this.apiService.updateBookWithComment(this.book).subscribe((updatedBook) => {
       this.book = updatedBook;     
-
       this.newCommentText = '';    
       this.newCommentRating = 0;
+
+      
+        
+
+      // window.location.reload();
     })
   }
   }

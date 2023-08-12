@@ -29,7 +29,9 @@
   /* align-items: center; */
   /* justify-content: center; */
 }
-
+.error{
+  color: red;
+}
   .edit-book input {
     flex: 0 1 100%;
     border: 1px solid;

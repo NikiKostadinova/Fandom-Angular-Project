@@ -6,22 +6,47 @@
     <div class="form-group d-grid gap-3">
       <label for="name">Title:</label>
       <input type="text" id="name" name="name" formControlName="name" required class="form-control w-50 mx-auto">
+      <ng-container *ngIf="bookForm.get('name')?.touched">
+        <p class="error" *ngIf="bookForm.get('name')?.hasError('required')">
+          Book name is required.
+        </p>
+      </ng-container>
     </div>
     <div class="form-group d-grid gap-3">
       <label for="author">Author:</label>
       <input type="text" id="author" name="author" formControlName="author" required class="form-control w-50 mx-auto">
+      <ng-container *ngIf="bookForm.get('author')?.touched">
+        <p class="error" *ngIf="bookForm.get('author')?.hasError('required')">
+          Book author is required.
+        </p>
+      </ng-container>
     </div>
     <div class="form-group d-grid gap-3">
         <label for="image">Image:</label>
         <input type="text" id="image" name="image" formControlName="image" required class="form-control w-50 mx-auto">
+        <ng-container *ngIf="bookForm.get('image')?.touched">
+          <p class="error" *ngIf="bookForm.get('image')?.hasError('required')">
+            Book image is required.
+          </p>
+        </ng-container>
       </div>
       <div class="form-group d-grid gap-3">
         <label for="published">Published:</label>
         <input type="text" id="published" name="published" formControlName="published" required class="form-control w-50 mx-auto">
+        <ng-container *ngIf="bookForm.get('published')?.touched">
+          <p class="error" *ngIf="bookForm.get('published')?.hasError('required')">
+            Book published date is required.
+          </p>
+        </ng-container>
       </div>
       <div class="form-group d-grid gap-3">
         <label for="genre">Genre:</label>
         <input type="text" id="genre" name="genre" formControlName="genre" required class="form-control w-50 mx-auto">
+        <ng-container *ngIf="bookForm.get('genre')?.touched">
+          <p class="error" *ngIf="bookForm.get('genre')?.hasError('required')">
+            Book genre is required.
+          </p>
+        </ng-container>
       </div>
       <div class="form-group d-grid gap-3">
         <label for="description">Description:</label>
@@ -35,6 +60,11 @@
               formControlName="description"
               required              
             ></textarea>
+            <ng-container *ngIf="bookForm.get('description')?.touched">
+              <p class="error" *ngIf="bookForm.get('description')?.hasError('required')">
+                Book description is required.
+              </p>
+            </ng-container>
       </div>
     
     <button type="submit" class="btn-edit" >Save Changes</button>

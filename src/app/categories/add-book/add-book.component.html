@@ -121,15 +121,15 @@
   
           <ng-container *ngIf="inputName.touched">
             <p class="error" *ngIf="inputName.errors?.['required']">
-              Theme name is required.
+              Book name is required.
             </p>
-            <p class="error" *ngIf="inputName.errors?.['minlength']">
+            <!-- <p class="error" *ngIf="inputName.errors?.['minlength']">
               Theme name must be at least 5 characters long.
-            </p>
+            </p> -->
           </ng-container>
         </div>
         <div class="form-group d-grid gap-3">
-            <label for="themeName">Author</label>
+            <label for="author">Author</label>
             <input
             class="form-control w-50 mx-auto"
               type="text"
@@ -143,15 +143,15 @@
     
             <ng-container *ngIf="inputName.touched">
               <p class="error" *ngIf="inputName.errors?.['required']">
-                Theme name is required.
+                Book author is required.
               </p>
-              <p class="error" *ngIf="inputName.errors?.['minlength']">
+              <!-- <p class="error" *ngIf="inputName.errors?.['minlength']">
                 Theme name must be at least 5 characters long.
-              </p>
+              </p> -->
             </ng-container>
           </div>
           <div class="form-group d-grid gap-3">
-            <label for="themeName">Image</label>
+            <label for="image">Image</label>
             <input
             class="form-control w-50 mx-auto"
               type="text"
@@ -165,11 +165,11 @@
     
             <ng-container *ngIf="inputName.touched">
               <p class="error" *ngIf="inputName.errors?.['required']">
-                Theme name is required.
+                Book image is required.
               </p>
-              <p class="error" *ngIf="inputName.errors?.['minlength']">
+              <!-- <p class="error" *ngIf="inputName.errors?.['minlength']">
                 Theme name must be at least 5 characters long.
-              </p>
+              </p> -->
             </ng-container>
           </div> 
        
@@ -188,11 +188,11 @@
     
             <ng-container *ngIf="inputName.touched">
               <p class="error" *ngIf="inputName.errors?.['required']">
-                Theme name is required.
+                Published date is required.
               </p>
-              <p class="error" *ngIf="inputName.errors?.['minlength']">
+              <!-- <p class="error" *ngIf="inputName.errors?.['minlength']">
                 Theme name must be at least 5 characters long.
-              </p>
+              </p> -->
             </ng-container>
           </div>
           <div class="form-group d-grid gap-3">
@@ -210,11 +210,11 @@
     
             <ng-container *ngIf="inputName.touched">
               <p class="error" *ngIf="inputName.errors?.['required']">
-                Theme name is required.
+                Book genre is required.
               </p>
-              <p class="error" *ngIf="inputName.errors?.['minlength']">
+              <!-- <p class="error" *ngIf="inputName.errors?.['minlength']">
                 Theme name must be at least 5 characters long.
-              </p>
+              </p> -->
             </ng-container>
           </div>
           <div class="form-group d-grid gap-3">
@@ -235,10 +235,10 @@
     
             <ng-container *ngIf="textAreaInput.touched">
               <p class="error" *ngIf="textAreaInput.errors?.['required']">
-                The field with your post is required.
+                Book description is required.
               </p>
               <p class="error" *ngIf="textAreaInput.errors?.['minlength']">
-                Post must be at least 10 characters long.
+                Description must be at least 50 characters long.
               </p>
             </ng-container>
           </div>

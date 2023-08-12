@@ -6,15 +6,13 @@
         <div *ngFor="let book of booksList" class="col-md-3 col-sm-6 col-xs-12">
 
             <div class="card ">
-                <img src={{book.image}} alt="Girl in a jacket" class="img-fluid founded-start" width="500" height="200">
-          
+                <a [routerLink]="['/books', book._id]">
+                    <img class="book-img" [src]="book.image" alt="Book Image" >
+                  </a>  
+               
 
-            <div class="card-body">
-                <h3 class="card-title">{{book.name}}</h3>
-                <h5 class="card-author">by {{book.author}}</h5>
-
-                <button *ngIf="isLogged" class="btn-details shadow-effect"
-                    [routerLink]="['/books', book._id]">Details</button>
+                <!-- <button *ngIf="isLogged" class="btn-details shadow-effect"
+                    [routerLink]="['/books', book._id]">Details</button> -->
             </div>
         </div>
     </div>

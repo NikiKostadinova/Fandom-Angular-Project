@@ -14,6 +14,8 @@ import { SharedModule } from './shared/shared.module';
 import { appInterceptorProvider } from './app.interceptor';
 import { AuthenticateComponent } from './authenticate/authenticate.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { SlicePipe } from './shared/pipes/slice.pipe';
+import { ErrorComponent } from './core/error/error.component';
 
 
 
@@ -24,7 +26,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
   declarations: [
     AppComponent,
     MainComponent,
-    HomeComponent,
+    HomeComponent,    
     AuthenticateComponent,
     PageNotFoundComponent,
 

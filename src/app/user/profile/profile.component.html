@@ -6,36 +6,29 @@
       <ng-container *ngIf="!isEditMode">
         <div class="profile-main row">
           <div class="user-info col-md-3">
-            <div class="user-name flex ">
-              <!-- <p>Username: </p> -->
+            <div class="user-name flex ">             
               <p>{{profileDetails.username}}</p>
             </div>
-            <div class="email flex ">
-              <!-- <p>Email: </p> -->
+            <div class="email flex ">              
               <p>{{profileDetails.email}}</p>
             </div>
             <button class="edit-button" (click)="toggleEditMode()">Update User Info</button>
 
           </div>
           <div class="wish col-md-9">
-            <p class="title">Want To Read</p>            
-              <ul *ngFor="let book of wishListBooks">
-                <div class="card ">
+            <div class="wish-book">
+              <p class="title">Want To Read</p>
+              <div class=" list-group list-group-horizontal" >
+
+                <div class="list-group-item ml-2" *ngFor="let book of wishListBooks">
                   <a [routerLink]="['/books', book._id]">
-                    <img [src]="book.image" alt="Book Image">
-                  </a>              
-                  
+                    <img class="book-img" [src]="book.image" alt="Book Image">
+                  </a>
+
                 </div>
 
-
-                <!-- <div>
-                  <img src="{{book.image}}" width="50" height="50">
-                  <h4>{{ book.name }}</h4>
-                  <p>Author: {{ book.author }}</p>                 
-                </div> -->
-              
-            </ul>
-
+              </div>
+            </div>
 
           </div>
         </div>
@@ -63,7 +56,7 @@
           <!-- email input -->
           <div class="flex">
             <p>Email:</p>
-            <input type="email" id="email" formControlName="email" />
+            <input type="email" id="email" formControlName="email" class="email" />
           </div>
 
           <!-- email validations -->

@@ -1,3 +1,4 @@
+
 import { ValidatorFn } from "@angular/forms";
 
 
@@ -12,3 +13,6 @@ export function appEmailValidator(domains: string[]): ValidatorFn {
         return control.value === "" || regExp.test(control.value) ? null : { appEmailValidator: true };
     };
 }
+
+
+  

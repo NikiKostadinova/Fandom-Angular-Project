@@ -8,15 +8,21 @@ import { ErrorService } from './error.service';
 })
 export class ErrorComponent implements OnInit{
   apiError$ = this.errorService.apiError$$.asObservable();
+ 
 
   errorMsg = '';
 
   constructor(private errorService: ErrorService) {}
 
    ngOnInit(): void {
-     this.apiError$.subscribe((err: any) => {
-      this.errorMsg = err.message
-     })
+    this.errorService.apiError$$.subscribe((error: any) => {
+      if (error) {
+       
+        this.errorMsg = error.message || 'An error occurred.';
+      } else {
+        this.errorMsg = '';
+      }
+    });
    }
 
 }

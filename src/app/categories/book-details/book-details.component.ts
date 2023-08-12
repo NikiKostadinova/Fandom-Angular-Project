@@ -13,20 +13,22 @@ import { BehaviorSubject } from 'rxjs';
   selector: 'app-book-details',
   templateUrl: './book-details.component.html',
   styleUrls: ['./book-details.component.css']
-  
+
 })
 export class BookDetailsComponent implements OnInit {
 
   book: Book | undefined;
+  bookId: string = '';
   newCommentText: string = '';
   newCommentRating: number = 0;
   username: string = '';
-  private user$$ = new BehaviorSubject<User | undefined>(undefined);
+  user$$: BehaviorSubject<User | undefined> = new BehaviorSubject<User | undefined>(undefined);;
   currentUser: User | undefined;
   isOwnedByCurrentUser: boolean = false;
   truncatedDescriptionLength: number = 300;
   truncatedCommentLength: number = 50;
   showFullDescription: boolean = false;
+  isAddedToWishList: boolean = false;
 
   constructor(
     private apiService: ApiService,
@@ -40,16 +42,31 @@ export class BookDetailsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    window.scrollTo(0, 0); 
+    window.scrollTo(0, 0);
     this.fetchBook();
     this.fetchUser();
-    
+
+
+
+    if (this.isLogged) {
+      this.userService.getProfile().subscribe((user) => {
+        if (user) {
+          this.user$$.next(user);
+          user.wishList
+        }
+        if (user.wishList.includes(this.bookId)) {
+          this.isAddedToWishList = true;
+          return;
+        }
+      });
+    }
+
   }
 
   fetchBook(): void {
-    const id = this.activatedRoute.snapshot.params['id'];
+    this.bookId = this.activatedRoute.snapshot.params['id'];
 
-    this.apiService.getBook(id).subscribe((book) => {
+    this.apiService.getBook(this.bookId).subscribe((book) => {
       this.book = book;
 
       if (this.book.commentList && this.book.commentList.length > 0) {
@@ -70,12 +87,12 @@ export class BookDetailsComponent implements OnInit {
   }
 
   fetchUser(): void {
-    
+
     const username = this.userService.getCurrentUserUsername();
     if (username) {
       this.username = username;
     }
-    
+
   }
 
   onDeleteBook(): void {
@@ -118,34 +135,40 @@ export class BookDetailsComponent implements OnInit {
     };
 
     if (this.book) {
-      this.book.commentList.push(newComment);
-      
+      this.book.commentList.push(newComment);      
+
       this.apiService.updateBookWithComment(this.book).subscribe((updatedBook) => {
         this.book = updatedBook;
-
         this.newCommentText = '';
         this.newCommentRating = 0;
+
+        const totalRating = this.book.commentList.reduce((acc, comment) => acc + comment.rating, 0);
+    this.book.rating = totalRating / this.book.commentList.length;
       })
     }
+
+   
+
+
   }
 
   addToWishList(book: Book): void {
     if (!this.isLogged) {
       return;
     }
-  
+
     this.userService.getProfile().subscribe((user) => {
       if (user) {
-        console.log(user)
+
         const updatedUser = { ...user, wishList: [...user.wishList, book._id] };
-  
         this.userService.updateProfile(updatedUser).subscribe(() => {
-          // Update the user's wishList in the component if needed
           this.user$$.next(updatedUser);
-          console.log('Book added to wish list');
         });
       }
     });
+
+    window.location.reload();
+
   }
 
 }

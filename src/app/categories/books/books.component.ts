@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/api.service';
 import { Book } from 'src/app/types/book';
-
+import { SlicePipe } from 'src/app/shared/pipes/slice.pipe';
 import { UserService } from 'src/app/user/user.service';
 
 @Component({
@@ -11,7 +11,8 @@ import { UserService } from 'src/app/user/user.service';
 })
 export class BooksComponent implements OnInit {
   booksList: Book[] = [];
-
+  showFullDescription: boolean = false;
+  truncatedDescriptionLength: number = 300;
 
   constructor(private apiService: ApiService, private userService: UserService) { }
 
@@ -33,6 +34,10 @@ export class BooksComponent implements OnInit {
         console.error(`Error: ${err}`);
       }
     })
+  }
+
+  toggleDescription() {
+    this.showFullDescription = !this.showFullDescription;
   }
 
 

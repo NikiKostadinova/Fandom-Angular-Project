@@ -20,7 +20,7 @@
         </p>
         <div class="description-container">
           <p class="description">
-            {{ showFullDescription ? book.description : (book.description | slice:0:truncatedDescriptionLength) }}
+            {{ showFullDescription ? book.description : (book.description | slice:0:truncatedDescriptionLength)+ '...' }}
             <span class="read-toggle" *ngIf="book.description.length > truncatedDescriptionLength"
               (click)="toggleDescription()">
               {{ showFullDescription ? 'Read less' : 'Read more' }}
@@ -34,7 +34,16 @@
           [routerLink]="['/books',book._id,'editBook']">Update Info</button>
         <button *ngIf="isLogged && isOwnedByCurrentUser" class="btn-delete" (click)="onDeleteBook()">Delete
           Book</button>
-        <button *ngIf="isLogged " class="btn-wish" (click)="addToWishList(book)" >Want To Read</button>
+          <ng-container *ngIf="isLogged">
+            <ng-container *ngIf="book">
+              <ng-container *ngIf="isAddedToWishList">
+                <span class="wished">Added to wish list</span>
+              </ng-container>
+              <ng-container *ngIf="!isAddedToWishList">
+                <button class="btn-wish" (click)="addToWishList(book)">Want To Read</button>
+              </ng-container>
+            </ng-container>
+          </ng-container>
 
       </div>
     </div>
