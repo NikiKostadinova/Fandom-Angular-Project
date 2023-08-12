@@ -3,6 +3,8 @@
   font-size: 15px;
   padding-left: 1.5em;
   color: orange;
+  margin-right: 10px;
+ 
 }
 
 .star {
@@ -32,6 +34,7 @@
   color:rgb(47, 97, 80);
   width: 690px;
 
+
 }
 
 
@@ -51,6 +54,8 @@
 
 .container{ 
  display: flex;
+ margin-top: 20px;
+ margin-bottom: 20px;
 }
 .card{
  
@@ -64,51 +69,91 @@
 .card-body{
 
   background-color: azure;
- display: block;
- width: 100%;
+ /* display: block;
+ width: 100%; */
 
-    
+ display: flex;
+ flex-direction: column;
+ justify-content: flex-start;
+ align-items: flex-start;
 
 
+}
+
+.description-container {
+  max-width: 100%; /* Ensure the container grows to fill available space */
+}
+
+.description {
+  font-size: 16px;
+  white-space: pre-line; /* Preserve newlines and spaces in the text */
+  overflow-wrap: break-word; /* Allow text to wrap if necessary */
+}
+
+.read-toggle {
+  color: blue;
+  cursor: pointer;
+}
+
+/* Set a minimum height for the container to prevent it from collapsing */
+.card-body {
+  margin-left: 0px;
+  min-height: 400px; /* Adjust this value as needed */
+  min-width: 690px;
 }
 
 .btn-info{
-    height: 30px;
-    border-radius: 5px;
-    border: none;
-    font-size: 13px;
-    background-color: var(--primary-color);
+
+  color: rgba(59, 65, 66, 0.996); 
+  background-color: rgb(171, 201, 206);
+  margin: 0.5em 1em;
+  margin-top: -60px;
+  align-self: end;
+  min-width: 100px;
+
+  padding: 0.5em 1em;
+  border: none;
+  border-radius: 0.3em;
+  
 }
 
 .btn-delete{
-    height: 30px;
-    border-radius: 5px;
-    border: none;
-    font-size: 13px;
-    background-color: var(--primary-color);
+  color: rgba(59, 65, 66, 0.996); 
+  background-color: rgb(171, 201, 206);
+  margin: 0.5em 1em;
+  min-width: 100px;
+  /* margin-left: 10px; */
+  align-self: end;
+  padding: 0.5em 1em;
+  border: none;
+  border-radius: 0.3em;
+}
+.btn-wish{
+  color: rgba(59, 65, 66, 0.996); 
+  background-color: rgb(171, 201, 206);
+  margin: 0.5em 1em;
+  /* margin-left: 10px; */
+  align-self: end;
+  padding: 0.5em 1em;
+  border: none;
+  border-radius: 0.3em;
 }
 
-/* .img-card {
-    background-color: azure;
-    position: relative;
-  } */
+.btn-allComments{
+  color: rgba(59, 65, 66, 0.996); 
+  background-color: rgb(171, 201, 206);
+  margin: 0.5em 1em;
+  margin-left: 150px;  
+  padding: 0.5em 1em;
+  border: none;
+  border-radius: 0.3em;
+ 
+}
 
-
-
-  
-
-  
-  /* .comment header p {
-    padding: 0.3em;
-    text-align: center;
-    background-color: #ffffff;
-    border-bottom: 1px dashed;
-    margin-right: 0;
-  } */
-  
   .comment-main {
     margin: 1em;
     display: flex;
+    color: rgba(59, 65, 66, 0.996);  
   }
   
   .userdetails p {
@@ -120,24 +165,15 @@
     padding-left: 1.5em;
   }
   
-  /* .footer {
-    font-size: 1.5em;
-    border-top: 1px dashed;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    color: rgb(0, 128, 182);
-  }
-  
-  .footer i {
-    background-color: #ffffff;
-    border: none;
-    cursor: pointer;
-  } */
-  
+
  
   
   /* answer-comment */
+.leave-comment p {
+  margin-bottom: 0px;
+
+}
+  
   
   .answer-comment {
     width: 100%;
@@ -146,20 +182,23 @@
   }
   
   .answer-comment p {
+    margin-top: 10px;
     flex-basis: 15%;
     padding-bottom: 0.3em;
   }
   
   .answer-comment p span {
-    color: rgb(0, 128, 182);
+   
+    color: rgba(59, 65, 66, 0.996);  
     font-size: 1.2em;
   }
   
   .answer {
-    border: 1px solid;
+    /* border: 1px solid; */
     border-radius: 0.3em;
     flex-basis: 85%;
     text-align: center;
+    margin-bottom: 10px;
   }
   
   .answer textarea {
@@ -169,25 +208,16 @@
   }
   
   .answer button {
-    color: rgb(47, 97, 80);
-    background-color: rgb(171, 206, 195);
+    color: rgba(59, 65, 66, 0.996); 
+    background-color: rgb(171, 201, 206);
     margin: 0.5em 1em;
-    margin-left: 35px;
+    margin-left: 20px;
     padding: 0.5em 1em;
-    border: 1px solid;
+    border: none;
     border-radius: 0.3em;
   }
 
-  
-/* .btn-comment{
- 
-  color:rgb(47, 97, 80);
-  background-color: rgb(171, 206, 195);
-  margin: 0.5em 1em;
-  padding: 0.2em 1em;
-  border: 1px solid;
-  border-radius: 0.3em;
-} */
+
   
   .answer button:hover {
     cursor: pointer;
@@ -198,8 +228,8 @@
   }
 
   .leave-comment span{
-    font-family:'Fondamento', cursive;
-    color:rgb(68, 112, 98);
+    font-family:'Raleway', sans-serif;
+    color:rgba(59, 65, 66, 0.996); 
     font-size: large;
     font-weight: 500;
     margin-left: 5px;
@@ -207,8 +237,7 @@
   }
 
   .title {
-    color: rgb(13, 14, 14);
-  
+    color: rgba(59, 65, 66, 0.996);  
     font-family: 'Raleway', sans-serif;
   }
   
@@ -217,3 +246,23 @@
     color: rgb(13, 14, 14);
 
   }
+
+  .description {
+    color: rgba(59, 65, 66, 0.996);  
+    font-family: 'Raleway', sans-serif;
+  }
+
+  .published {
+    font-family: 'Raleway', sans-serif;
+    color: rgba(59, 65, 66, 0.996); 
+  }
+
+  .genre {
+    font-family: 'Raleway', sans-serif;
+    color: rgba(59, 65, 66, 0.996); 
+  }
+
+  .userName {
+     text-align: center;
+  }
+

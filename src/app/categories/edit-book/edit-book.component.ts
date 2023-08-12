@@ -31,16 +31,20 @@ export class EditBookComponent implements OnInit {
 
   fetchBook(): void {
     const id = this.activatedRoute.snapshot.params['id'];
+    
 
     this.apiService.getBook(id).subscribe((book) => {
       this.book = book;
+    console.log(this.book)
+
       this.bookForm.patchValue({
         name: this.book.name,
         author: this.book.author,
         image: this.book.image,
         published: this.book.published,
         genre: this.book.genre,
-        description: this.book.description
+        description: this.book.description,
+        
       });
     });
   }
@@ -52,7 +56,10 @@ export class EditBookComponent implements OnInit {
     }
 
     const formData = this.bookForm.value;
-    const bookToUpdate: Book = { ...this.book, ...formData};   
+    const bookToUpdate: Book = { ...this.book, ...formData}; 
+
+    console.log(bookToUpdate)
+    
 
     this.apiService.updateBook(bookToUpdate).pipe(tap((updatedBook) => {
        console.log('Book updated successfully', updatedBook);
@@ -65,59 +72,7 @@ export class EditBookComponent implements OnInit {
     ).subscribe();
   }
 
-  //  bookDetails: Book = {
-  //   name: '',
-  //   author: '',
-  //   image: {url: '', alt: ''},
-  //   published: 0,
-  //   genre: '',
-  //   description: ''
-  //  }
-
-  //  form = this.fb.group({
-  //   name: ['', Validators.required],
-  //   author: ['', Validators.required],
-  //   image: ['', Validators.required],
-  //   published: ['', Validators.required],
-  //   genre: ['', Validators.required],
-  //   description: ['', Validators.required],
-  //  })
-
-  //  constructor(private fb: FormBuilder, private apiService: ApiService) {}
-
-  //  ngOnInit(): void {
-  //    const { name, author, image, published, genre, description } = this.apiService.book!;
-  //    this.bookDetails = {
-  //     name, 
-  //     author, 
-  //     image, 
-  //     published, 
-  //     genre, 
-  //     description
-  //    };
-
-  //    this.form.setValue({
-  //     name, 
-  //     author, 
-  //     image, 
-  //     published, 
-  //     genre, 
-  //     description
-  //    });
-  //  }
-
-  //  saveBookHandler(): void {
-  //   if(this.form.invalid){
-  //     return;
-  //   }
-
-  //   this.bookDetails = { ...this.form.value } as Book;
-  //   const { name, author, image, published, genre, description } = this.bookDetails;
-
-  //   this.apiService.updateBook(name!, author!, image!, published!, genre!, description!).subscribe(() => {
-
-  //   })
-  //  }
+  
 
 }
 

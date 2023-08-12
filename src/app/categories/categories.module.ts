@@ -7,7 +7,7 @@ import { BookDetailsComponent } from './book-details/book-details.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EditBookComponent } from './edit-book/edit-book.component';
 import { BookCardComponent } from './book-card/book-card.component';
-import { CommentsComponent } from '../comments/comments.component';
+import { CommentsComponent } from './comments/comments.component';
 
 
 
@@ -18,6 +18,7 @@ import { CommentsComponent } from '../comments/comments.component';
     BookDetailsComponent,
     EditBookComponent,
     BookCardComponent,
+    CommentsComponent
   ],
   imports: [
     CommonModule,

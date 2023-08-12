@@ -7,6 +7,7 @@ import { BooksComponent } from './books/books.component';
 import { BookDetailsComponent } from './book-details/book-details.component';
 import { AddBookComponent } from './add-book/add-book.component';
 import { EditBookComponent } from './edit-book/edit-book.component';
+import { CommentsComponent } from './comments/comments.component';
 
 
 const routes: Routes = [
@@ -15,7 +16,9 @@ const routes: Routes = [
     { path: 'books', component:  BooksComponent},
     { path: 'books/:id', component: BookDetailsComponent, canActivate: [AuthActivate] },
     { path: 'add', component: AddBookComponent, canActivate: [AuthActivate] },
-    { path: 'books/:id/editBook', component: EditBookComponent, canActivate: [AuthActivate] }
+    { path: 'books/:id/editBook', component: EditBookComponent, canActivate: [AuthActivate] },
+    { path: 'books/:id/comments', component: CommentsComponent, canActivate: [AuthActivate] },
+
 ];
 
 @NgModule({

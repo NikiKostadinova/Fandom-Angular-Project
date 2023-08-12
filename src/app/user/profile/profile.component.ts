@@ -3,6 +3,9 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { DEFAULT_EMAIL_DOMAINS } from 'src/app/shared/constants';
 import { appEmailValidator } from 'src/app/shared/validators/app-email-validator';
 import { UserService } from '../user.service';
+import { User } from 'src/app/types/user';
+import { Book } from 'src/app/types/book';
+import { ApiService } from 'src/app/api.service';
 
 interface Profile {
   username: string;
@@ -16,6 +19,8 @@ interface Profile {
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
+  user: User | undefined;
+  wishListBooks: Book[] = [];
   profileDetails: Profile = {
     username: '',
     email: '',
@@ -39,9 +44,15 @@ export class ProfileComponent implements OnInit {
     // persons: this.fb.array([]),
   });
 
-  constructor(private fb: FormBuilder, private userService: UserService) { }
+  constructor(private fb: FormBuilder, private userService: UserService, private apiService: ApiService) { }
 
   ngOnInit(): void {
+    this.userService.user$.subscribe((user) => {
+      this.user = user;
+      if (user) {
+        this.fetchWishListBooks();
+      }
+    });
     const { username, email } = this.userService.user!;
     this.profileDetails = {
       username,
@@ -55,10 +66,15 @@ export class ProfileComponent implements OnInit {
       
     });
   }
-  // pagination
-  // records => 1000
-  // 10 records per page -> page: 100
-  // 10 records => 4 => offset= 4, limit = 10
+  
+
+  fetchWishListBooks(): void {
+    if (this.user?.wishList) {
+      this.apiService.getBooks().subscribe((books) => {
+        this.wishListBooks = books.filter(book => this.user?.wishList.includes(book._id));
+      });
+    }
+  }
 
   toggleEditMode(): void {
     this.isEditMode = !this.isEditMode;
@@ -70,14 +86,20 @@ export class ProfileComponent implements OnInit {
     }
 
     this.profileDetails = { ...this.form.value } as Profile;
-    const { username, email } = this.profileDetails;
+    // const { username, email } = this.profileDetails;
+
+    const updatedUser: User = {
+      ...this.userService.user!,
+      username: this.profileDetails.username,
+      email: this.profileDetails.email,
+    };
 
     // const headers = {
     //   Authorization: `Bearer ${this.userService.getToken()}`
     // };
    
     
-    this.userService.updateProfile(username!, email!).subscribe(() => {
+    this.userService.updateProfile(updatedUser).subscribe(() => {
       this.toggleEditMode();
     });
   }

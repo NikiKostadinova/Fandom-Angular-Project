@@ -5,9 +5,12 @@ import { Pipe, PipeTransform } from '@angular/core';
   name: 'slice'
 })
 export class SlicePipe implements PipeTransform {
-
-  transform(value: string, maxCharCount = 5): unknown {
-    return `${value.substring(0, maxCharCount)}${value.length > maxCharCount ? '...' : ''}`;
+  transform(value: string, maxCharCount: number): string {
+    if (value.length <= maxCharCount) {
+      return value;
+    }
+    const reversed = value.split('').reverse().join('');
+    const truncated = reversed.slice(0, maxCharCount);
+    return truncated.split('').reverse().join('') + '...';
   }
-
 }

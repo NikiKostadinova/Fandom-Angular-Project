@@ -1,68 +1,88 @@
 <div class="container" *ngIf="book">
   <div class="row align-items-start">
-<div class="col-md-3">
-    <div class="card shadow-effect" style="padding: 0;">
-      <img src={{book.image}} alt="Book Image" class="img-fluid founded-start" width="250" height="250">
+    <div class="col-md-3">
+      <div class="card shadow-effect" style="padding: 0;">
+        <img src={{book.image}} alt="Book Image" class="img-fluid founded-start" width="250" height="250">
+      </div>
+    </div>
+    <div class="col-md-9">
+      <div class="card-body col-lg-10 shadow-effect">
+
+        <h1 class="title mt-3 mb-3"> {{book.name}} </h1>
+        <h5 class="card-author">by {{book.author}}</h5>
+        <div class="rating">
+          <span *ngFor="let star of [1, 2, 3, 4, 5]">
+            <i class="fa" [ngClass]="{'fa-star': book.rating >= star, 'fa-star-o': book.rating < star}"></i>
+          </span>
+        </div>
+        <p>
+
+        </p>
+        <div class="description-container">
+          <p class="description">
+            {{ showFullDescription ? book.description : (book.description | slice:0:truncatedDescriptionLength) }}
+            <span class="read-toggle" *ngIf="book.description.length > truncatedDescriptionLength"
+              (click)="toggleDescription()">
+              {{ showFullDescription ? 'Read less' : 'Read more' }}
+            </span>
+          </p>
+        </div>
+        <h6 class="published">{{book.published}}</h6>
+        <h6 class="genre">Genre: {{book.genre}}</h6>
+
+        <button *ngIf="isLogged && isOwnedByCurrentUser" class="btn-info"
+          [routerLink]="['/books',book._id,'editBook']">Update Info</button>
+        <button *ngIf="isLogged && isOwnedByCurrentUser" class="btn-delete" (click)="onDeleteBook()">Delete
+          Book</button>
+        <button *ngIf="isLogged " class="btn-wish" (click)="addToWishList(book)" >Want To Read</button>
+
+      </div>
     </div>
   </div>
-  <div class="col-md-9">
-    <div class="card-body col-lg-10">     
+</div>
 
-      <h1 class="title mt-3 mb-3"> {{book.name}} </h1>
-      <h5 class="card-author">by {{book.author}}</h5>
+<div class="comment" *ngFor="let comment of book?.commentList | slice:-3">
+  <div class="comment-main">
+    <div class="user">
+      <img src="/assets/profile.png" alt="avatar" width="50" height="50" />
+      <div class="userName">{{ comment.username }}</div>
+    </div>
+    <div class="content">
       <div class="rating">
         <span *ngFor="let star of [1, 2, 3, 4, 5]">
-          <i class="fa" [ngClass]="{'fa-star': book.rating >= star, 'fa-star-o': book.rating < star}"></i>
+          <i class="fa" [ngClass]="{'fa-star': comment.rating >= star, 'fa-star-o': comment.rating < star}"></i>
         </span>
       </div>
       <p>
-      
-    </p>
-      <p>{{book.description}}</p>
-      <button *ngIf="isLogged && isOwnedByCurrentUser" class="btn-info" [routerLink]="['/books',book._id,'editBook']">Update Info</button>
-      <button *ngIf="isLogged && isOwnedByCurrentUser" class="btn-delete ml-2" (click)="onDeleteBook()">Delete Book</button>
-      <!-- <button *ngIf="isLogged " class="btn-wish ml-2" >Add to Wishlist</button> -->
-
+        {{ showFullDescription ? comment.comment : (comment.comment | slice:0:truncatedCommentLength) }}
+        <span class="read-toggle" *ngIf="comment.comment.length > truncatedCommentLength" (click)="toggleComment()">
+          {{ showFullDescription ? 'Read less' : 'Read more' }}
+        </span>
+      </p>
     </div>
-  </div>  
-</div>
-</div>
-
-<div class="comment" *ngFor="let comment of book?.commentList">
-<div class="comment-main">
-  <div class="user">
-    <img src="/assets/profile.png" alt="avatar" width="50" height="50"/>
-    <div>{{ comment.username }}</div>
-  </div>
-  <div class="content">
-    <div class="rating">
-      <span *ngFor="let star of [1, 2, 3, 4, 5]">
-        <i class="fa" [ngClass]="{'fa-star': comment.rating >= star, 'fa-star-o': comment.rating < star}"></i>
-      </span>
-    </div>
-    <p>
-      {{ comment.comment }}
-    </p>
   </div>
 </div>
-</div>
 
 
 
-<div class="leave-comment" *ngIf="isLogged">
-  <p><span>{{username}}</span> comment:</p>
+<div class="leave-comment" *ngIf="isLogged && book">
+  <p><span>{{username}}</span> comment:
+    <button type="submit" class="btn-allComments" [routerLink]="['/books',book._id,'comments']">See All
+      Comments</button>
+  </p>
   <div class="answer">
-    <form (submit)="onSubmitComment()">
+    <form class="submit" (submit)="onSubmitComment()">
       <textarea name="commentText" [(ngModel)]="newCommentText" id="comment" cols="30" rows="10"></textarea>
       <div class="rating">
         <span *ngFor="let star of [1, 2, 3, 4, 5]" (click)="setRating(star)">
           <i class="fa" [ngClass]="{'fa-star': newCommentRating >= star, 'fa-star-o': newCommentRating < star}"></i>
         </span>
-      </div>      
+      </div>
       <button type="submit" class="btn-comment">Leave a Comment</button>
     </form>
   </div>
 </div>
+
 
 
 

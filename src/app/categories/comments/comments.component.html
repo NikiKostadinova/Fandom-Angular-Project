@@ -1,0 +1,70 @@
+<aside>
+    <div class="aside">
+        <div *ngIf="thereAreNoComments">
+            <h3> Be the first to leave a comment!</h3>
+        </div>
+
+        <div>
+            <div *ngIf="book">
+                <div class="card " style="padding: 0;">
+                    <img src={{book.image}} alt="Book Image" class="img-fluid founded-start" width="250" height="250">
+
+                    <div class="rating-img">
+                        <span *ngFor="let star of [1, 2, 3, 4, 5]">
+                            <i class="fa"
+                                [ngClass]="{'fa-star': book.rating >= star, 'fa-star-o': book.rating < star}"></i>
+                        </span>
+                    </div>
+                    <div class="button-like" [routerLink]="['/books',book._id]">Back to Details</div>
+                </div>
+                <div class="comment " *ngFor="let comment of commentsList" class="aside-book">
+
+                    <div class="comment-main row align-items-start">
+                        <div class="col-md-2">
+                            <img class="userName-img" src="/assets/profile.png" alt="avatar" width="50" height="50" />
+                            <div class="userName">{{ comment.username }}</div>
+                        </div>
+                        <div class="col-md-9 ml-5">
+                            <div class="rating">
+                                <span *ngFor="let star of [1, 2, 3, 4, 5]">
+                                    <i class="fa"
+                                        [ngClass]="{'fa-star': comment.rating >= star, 'fa-star-o': comment.rating < star}"></i>
+                                </span>
+                            </div>
+                            <div class="comment-content">
+                                <p>
+                                    {{ showFullDescription ? comment.comment : (comment.comment | slice:0:truncatedCommentLength) }}
+                                    <span class="read-toggle" *ngIf="comment.comment.length > truncatedCommentLength"
+                                        (click)="toggleComment()">
+                                        {{ showFullDescription ? 'Read less' : 'Read more' }}
+                                      </span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+              
+
+            </div>
+
+            <div class="leave-comment" *ngIf="book">
+                <p><span>{{username}}</span> comment:                    
+                </p>
+                <div class="answer">
+                    <form class="submit" (submit)="onSubmitComment()">
+                        <textarea name="commentText" [(ngModel)]="newCommentText" id="comment" cols="30"
+                            rows="10"></textarea>
+                        <div class="rating">
+                            <span *ngFor="let star of [1, 2, 3, 4, 5]" (click)="setRating(star)">
+                                <i class="fa"
+                                    [ngClass]="{'fa-star': newCommentRating >= star, 'fa-star-o': newCommentRating < star}"></i>
+                            </span>
+                        </div>
+                        <button type="submit" class="btn-comment">Leave a Comment</button>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</aside>

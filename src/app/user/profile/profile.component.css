@@ -2,7 +2,7 @@
     display: flex;
     margin: auto;
     margin-top: 300px;
-    width: 500%;   
+    width: 200%;   
     position: relative;
     height: 500px;
     color: rgb(168, 248, 248);  
@@ -23,6 +23,33 @@
     /* z-index: 9999; */
 
 }
+
+.wish{
+    margin-top: -200px;
+    display: block;
+    text-decoration: none;
+}
+
+.title{
+    font-size: 20px;
+    font-family:'Cinzel Decorative', cursive;
+    text-shadow: rgb(0, 242, 255) 1px 0 10px;
+}
+.card{
+    width: 100px;
+    height: 100px;
+}
+
+.card img{
+    width: 100px;
+    height: 100px;
+}
+
+.card a{
+    width: 100px;
+    height: 100px;
+}
+
 
 /* .profile-container {
     display: flex;
@@ -57,29 +84,42 @@
     text-decoration: underline;
 }
 
-.profile img {
+.profile {
+    text-align: start;
+    margin-left: 30px;
+}
+
+.p-img{
+    margin-left: 30px;
     width: 7em;
     height: 7em;
-    margin: auto;
+    margin: start;
     display: block;
 }
 
-.flex {
-    display: flex;
+.user-name{
+margin-top: 10px;
+  margin-left: 25px;
+ 
+ 
 }
 
-.flex p:first-child {
+/* .flex {
+    display: flex;
+} */
+
+/* .flex p:first-child {
     width: 35%;
     text-align: right;
     margin: .5em;
-}
+} */
 
-.flex p:last-child {
+/* .flex p:last-child {
     width: 55%;
     text-align: left;
     margin: .5em;
     font-weight: bold;
-}
+} */
 
 .profile button {
     color: rgb(37, 92, 126);
@@ -89,20 +129,20 @@
     outline: none;
 }
 
-.flex>input,
+/* .flex>input,
 .flex>div {
     width: 55%;
     text-align: left;
     margin: .5em;
-}
+} */
 
-.flex>div>input {
+/* .flex>div>input {
     width: 77%;
 }
 
 .flex select {
     padding: 0.17em 0;
-}
+} */
 
 .red-button {
     background-color: red;

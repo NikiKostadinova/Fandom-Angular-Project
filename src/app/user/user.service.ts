@@ -98,16 +98,20 @@ export class UserService implements OnDestroy {
       .pipe(tap((user) => this.user$$.next(user)));
   }
 
-  updateProfile(username: string, email: string) {
+  updateProfile(updatedUser: User) {
     const { apiUrl } = environment;
     const token = this.getToken();
     const headers = new HttpHeaders({
       Authorization: `Bearer ${token}`
     })
-    
+
     return this.http
-      .put<User>(`${ apiUrl }/api/users/profile`, { username, email }, {headers})
-      .pipe(tap((user) => this.user$$.next(user)));
+    .put<User>(`${apiUrl}/api/users/profile`, updatedUser, { headers })
+    .pipe(tap((user) => this.user$$.next(user)));
+    
+    // return this.http
+    //   .put<User>(`${ apiUrl }/api/users/profile`, { username, email }, {headers})
+    //   .pipe(tap((user) => this.user$$.next(user)));
   }
 
   getCurrentUserId(): string | null {

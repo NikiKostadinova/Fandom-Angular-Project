@@ -13,7 +13,7 @@
           <h3 class="card-title">{{book.name}}</h3>
           <h5 class="card-author">by {{book.author}}</h5>
           <p class="card-text">{{book.description}}</p>
-          <button *ngIf="isLogged" class="btn-details shadow-effect" [routerLink]="['/books', book._id]">Details</button>
+          <button *ngIf="isLogged" class="btn-details" [routerLink]="['/books', book._id]">Details</button>
         </div>
       </div>
     </div>

@@ -4,4 +4,6 @@ export interface User {
   password: string;
   _id: string;
   token: string;
+  wishList: string[];
+  booksComment:string[];
 }

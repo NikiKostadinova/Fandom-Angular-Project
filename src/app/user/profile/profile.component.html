@@ -1,32 +1,55 @@
 <div class="profile-container mt-5 ">
-    <fieldset>
-    <div class="profile"><img src="./assets/profile.png" alt="default user" class="profile-image">
-        <h3>User Info:</h3>
-        <ng-container *ngIf="!isEditMode">
-        <div class="flex">
-            <p>Username: </p>
-            <p>{{profileDetails.username}}</p>
-        </div>
-        <div class="flex">
-            <p>Email: </p>
-            <p>{{profileDetails.email}}</p>
-        </div>
-        <div class="flex">
-            <p>Phone: </p>
-            <p>+359 885 888 888</p>
-        </div>
-        <button class="edit-button" (click)="toggleEditMode()">Edit</button>
-    </ng-container>
+  <fieldset>
+    <div class="profile"><img class="p-img" src="./assets/profile.png" alt="default user" class="profile-image"
+        width="100" height="100">
 
-     <!-- EDIT MODE -->
-     <ng-container *ngIf="isEditMode && isLoggedIn">
+      <ng-container *ngIf="!isEditMode">
+        <div class="profile-main row">
+          <div class="user-info col-md-3">
+            <div class="user-name flex ">
+              <!-- <p>Username: </p> -->
+              <p>{{profileDetails.username}}</p>
+            </div>
+            <div class="email flex ">
+              <!-- <p>Email: </p> -->
+              <p>{{profileDetails.email}}</p>
+            </div>
+            <button class="edit-button" (click)="toggleEditMode()">Update User Info</button>
+
+          </div>
+          <div class="wish col-md-9">
+            <p class="title">Want To Read</p>            
+              <ul *ngFor="let book of wishListBooks">
+                <div class="card ">
+                  <a [routerLink]="['/books', book._id]">
+                    <img [src]="book.image" alt="Book Image">
+                  </a>              
+                  
+                </div>
+
+
+                <!-- <div>
+                  <img src="{{book.image}}" width="50" height="50">
+                  <h4>{{ book.name }}</h4>
+                  <p>Author: {{ book.author }}</p>                 
+                </div> -->
+              
+            </ul>
+
+
+          </div>
+        </div>
+      </ng-container>
+
+      <!-- EDIT MODE -->
+      <ng-container *ngIf="isEditMode && isLoggedIn">
         <form [formGroup]="form" (ngSubmit)="saveProfileHandler()">
           <!-- username input -->
           <div class="flex">
             <p>Username:</p>
             <input type="text" id="username" formControlName="username" />
           </div>
-  
+
           <!-- username validations -->
           <ng-container *ngIf="form.get('username')?.touched">
             <p class="error" *ngIf="form.get('username')?.errors?.['required']">
@@ -36,32 +59,29 @@
               Username's length should not be less than 5!
             </p>
           </ng-container>
-  
+
           <!-- email input -->
           <div class="flex">
             <p>Email:</p>
             <input type="email" id="email" formControlName="email" />
           </div>
-  
+
           <!-- email validations -->
           <ng-container *ngIf="form.get('email')?.touched">
             <p class="error" *ngIf="form.get('email')?.errors?.['required']">
               Email is required!
             </p>
-            <p
-              class="error"
-              *ngIf="form.get('email')?.errors?.['appEmailValidator']"
-            >
+            <p class="error" *ngIf="form.get('email')?.errors?.['appEmailValidator']">
               Email is not valid!
             </p>
           </ng-container>
-           
-  
+
+
           <!-- ACTIONS -->
           <button class="red-button">Cancel</button>
           <button class="green-button">Save</button>
         </form>
       </ng-container>
     </div>
-</fieldset>
+  </fieldset>
 </div>

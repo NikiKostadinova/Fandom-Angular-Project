@@ -33,26 +33,20 @@ export class ApiService {
 
   }
 
-  updateBook(bookToUpdate: Book): Observable<Book> {
-    const { apiUrl } = environment;
-    
-    return this.http.put<Book>(`${apiUrl}/api/books/${bookToUpdate._id}/editBook`, bookToUpdate);
-  }
-
 
   create(name: string, author: string, image: Image, published: number, genre: string, description: string, owner: string) {
     
     const { apiUrl } = environment; 
     return this.http.post<Book>(`${apiUrl}/api/books/create`, { name, author, image, published, genre, description, owner });
   }
-
-  // getComments(limit?: number){
-  //   const { apiUrl } = environment; 
-  //   const limitFilter = limit ? `?limit=${limit}` : '';
-
-  //   return this.http.get<Comment[]>(`${apiUrl}/comments${limitFilter}`)
-  //   .pipe(tap((comments) => (this.comments = comments)))
-  // }
+ 
+  updateBook(bookToUpdate: Book): Observable<Book> {
+    const { apiUrl } = environment;
+    
+   const update = this.http.put<Book>(`${apiUrl}/api/books/${bookToUpdate._id}/editBook`, bookToUpdate);
+   console.log(update)
+    return update;
+  }
 
   getBookComments(bookId: string, limit?: number): Observable<Comment[]> {
     const { apiUrl } = environment; 
@@ -73,12 +67,18 @@ export class ApiService {
       description: book.description,
       createdAt: book.createdAt,
       commentList: book.commentList,
-    };
-
-    
-   
+    };     
     
     return this.http.put<Book>(url, updatedBook);
+  }
+
+  addToWishList(userId: string, bookId: string): Observable<any> {
+    const apiUrl = environment.apiUrl;
+    const url = `${apiUrl}/api/users/${userId}/addToWishList`;
+
+    const data = { bookId };
+
+    return this.http.post(url, data);
   }
 
   deleteBook(id: string) {
